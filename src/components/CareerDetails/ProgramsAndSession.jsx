@@ -31,13 +31,13 @@ const ProgramsSection = () => {
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-800 mb-4">
+          <h2 className="text-[34px] font-baskerville font-bold text-[#1D69B5] mb-2">
             Programs & Sessions
           </h2>
-          <div className="w-20 h-1 bg-blue-600 mx-auto rounded-full"></div>
+          <div className="w-30 h-[6px] bg-title mx-auto rounded-full mb-8"></div>
         </div>
 
-        {/* Cards Grid */}
+  
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {programs.map((program) => (
             <SessionCard
@@ -49,7 +49,7 @@ const ProgramsSection = () => {
           ))}
         </div>
 
-        {/* Call to Action Button */}
+  
         <div className="text-center">
           <Button variant="secondary" size="md">
               Visit Site

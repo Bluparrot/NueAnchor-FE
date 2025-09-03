@@ -8,21 +8,21 @@ const ProgramsSection = () => {
   const programs = [
     {
       id: 1,
-      title: "1:1 consultation - For Students & families",
+      title: "Complete Setup Solutions",
       image: "https://images.pexels.com/photos/5212345/pexels-photo-5212345.jpeg?auto=compress&cs=tinysrgb&w=800",
-      description: "Personalized guidance and support tailored to individual needs and goals."
+      description: ""
     },
     {
       id: 2,
-      title: "Group workshops & seminars",
+      title: "Advisory/mentorship for school management.",
       image: "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800",
-      description: "Interactive learning experiences designed for collaborative growth and skill development."
+      description: ""
     },
     {
       id: 3,
-      title: "Motivational talks and global speakings.",
+      title: "Workshops for teachers, students, and admin.",
       image: "https://images.pexels.com/photos/2774556/pexels-photo-2774556.jpeg?auto=compress&cs=tinysrgb&w=800",
-      description: "Inspiring presentations that motivate and empower audiences worldwide."
+      description: ""
     }
   ];
 
@@ -31,10 +31,10 @@ const ProgramsSection = () => {
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-800 mb-4">
-            Programs & Sessions
+          <h2 className="text-[34px] font-baskerville text-title font-bold  mb-4">
+            Ways We Support You
           </h2>
-          <div className="w-20 h-1 bg-blue-600 mx-auto rounded-full"></div>
+          <div className="w-30 h-[6px] bg-title  mx-auto rounded-full mb-8"></div>
         </div>
 
         {/* Cards Grid */}

@@ -1,12 +1,32 @@
 import React from 'react';
 import FeatureCard from '../UI/FeatureCard';
-import { whyItMattersData } from '../../Data/WhyItMattersdData';
+// import { whyItMattersData } from '../../Data/WhyItMattersdData';
+
+
+const whyItMattersData =  [{
+    id: 1,
+    icon: "src/assets/Why1.png",
+    title: "Enroll",
+    description: "Choose from a library of certified online courses."
+  },
+  {
+    id: 2,
+    icon: "src/assets/Why2.png",
+    title: "Learn",
+    description: "Self-paced, multimedia-rich modules accessible anytime."
+  },
+  {
+    id: 3,
+    icon: "src/assets/Why3.png",
+    title: "Achieve",
+    description: "Earn certifications recognized by institutions & industry."
+  }]
 
 const WhyItMatters = () => {
   return (
     <section className="py-20 px-16 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
       <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
+        
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
             How It Works
@@ -21,6 +41,7 @@ const WhyItMatters = () => {
               key={feature.id}
               icon={feature.icon}
               title={feature.title}
+              description={feature.description}
             />
           ))}
         </div>

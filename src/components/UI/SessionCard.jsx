@@ -13,9 +13,11 @@ const SessionCard = ({ image, title, description, className = "" }) => {
         />
       </div>
       <div className="pt-4">
-        <h3 className="text-xl font-semibold text-gray-800 leading-tight text-left">
+        <h3 className="text-xl font-semibold font-Figtree text-black leading-tight text-left mb-2">
           {title}
+          
         </h3>
+        <p>{description && <span className="font-normal font-Figtree text-[16px] mb-2 "> {description}</span>}</p>
       </div>
     </div>
 

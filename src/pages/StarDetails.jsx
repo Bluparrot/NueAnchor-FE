@@ -19,11 +19,7 @@ const [showBrandsHeader, setShowBrandsHeader] = useState(false);
         <Header />
             
                 <BrandsHeader />
-                
                 <HeroSection />
-                <Trust />
-                <WhatWeOffer />
-                <WhyItMatters />
                 <ProgramsSection />
 
          <Footer />

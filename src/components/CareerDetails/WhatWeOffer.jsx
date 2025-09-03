@@ -30,7 +30,8 @@ const offers = [
 
 const WhatWeOffer = () => (
   <section className="py-16 px-16 text-center ">
-    <h2 className="text-3xl font-bold mb-8">What We Offer</h2>
+    <h2 className="text-[34px] font-bold font-baskerville text-title mb-2 ">What We Offer</h2>
+    <div className='h-[6px] w-30 bg-title rounded-3xl justify-center items-center inline-block mb-8'></div>
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 gap-y-16 py-8">
       {offers.map((offer, idx) => (
         <OfferItem key={idx} {...offer} />

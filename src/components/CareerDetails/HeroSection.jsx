@@ -1,5 +1,5 @@
 import React from 'react';
-import Badge from './Badge';
+import Badge from '../EducationDetails/Badge.jsx';
 
 import Heroimg from '../../assets/CareerHero.png';
 import Button from '../UI/Button';
@@ -25,15 +25,15 @@ const HeroSection = () => {
               <Badge variant="primary">NeuAnchor Careers</Badge>
             </div>
             
-            <h1 className="text-4xl lg:text-3xl font-bold text-gray-900 mb-2 leading-tight ">
+            <h1 className="text-4xl lg:text-3xl font-bold text-black font-baskerville mb-2 leading-tight ">
               Guiding Students and <br />
               <span>Young Adults</span>
             </h1>
-            <h2 className="text-3xl lg:text-3xl font-bold text-blue-600 mb-2 leading-tight">
+            <h2 className="text-3xl lg:text-3xl font-bold text-title font-baskerville mb-4 leading-tight">
               Towards Clarity & Purpose
             </h2>
             
-            <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+            <p className="text-lg text-black font-Figtree  mb-8 leading-relaxed">
               From subject selection to building global-ready profiles, NeuAnchor Careers helps students and families make confident, informed choices.
             </p>
             

@@ -8,7 +8,7 @@ const iconMap = {
   GraduationCap
 };
 
-const FeatureCard = ({ icon, title}) => {
+const FeatureCard = ({ icon, title ,description}) => {
 
   return (
     <div className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-white/20">
@@ -21,7 +21,9 @@ const FeatureCard = ({ icon, title}) => {
         <div className="flex-1">
           <h3 className="text-lg font-semibold text-gray-800 mb-2 leading-tight flex justify-center inline-block">
             {title}
+            
           </h3>
+          <p>{description && <span className="font-normal font-Figtree"> {description}</span>}</p>
         </div>
       </div>
     </div>

@@ -8,7 +8,9 @@ import BrandsHeader from '../components/AcadmicDetials/BrandHeaders.jsx';
 import WhatWeOffer from '../components/AcadmicDetials/WhatWeOffer.jsx';
 import ProgramsSection from '../components/AcadmicDetials/ProgramsAndSession.jsx';
 import WhyItMatters from '../components/AcadmicDetials/WhyItMatters.jsx';
+import { WhyChooseSection } from '../components/UI/WhyChooseSection.jsx';
 import HeroSection1 from '../components/AcadmicDetials/HeroSection.jsx';
+
 
 const AcademiesDetails = ({ className = '' }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -23,6 +25,10 @@ const AcademiesDetails = ({ className = '' }) => {
                 <ProgramsSection />
                 {/* <WhatWeOffer /> */}
                 <WhyItMatters />
+                <WhyChooseSection 
+                    // options={customOptionsData}
+                    title="Why Choose Indiana G"
+                />
 
 
                 

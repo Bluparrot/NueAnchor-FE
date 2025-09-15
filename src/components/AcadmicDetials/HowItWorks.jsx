@@ -1,13 +1,10 @@
 import React from "react";
 
-const FIGMA_HIW_TARGET =
-  "https://www.figma.com/design/Fh3NvzFFdF4Hc5FxHPYcBa/p?node-id=496-6410&t=fX3R5CvxfXnKZSct-4";
-
 export default function HowItWorks() {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Libre+Baskerville:wght@700&display=swap');
+        @import url;
 
         .hiw-main {
           display: flex;
@@ -134,14 +131,8 @@ export default function HowItWorks() {
       `}</style>
 
       <section className="hiw-main" aria-label="How It Works" style={{ marginBottom: "0px" }}>
-        {/* Blue banner (links to Figma) */}
-        <a
-          href={FIGMA_HIW_TARGET}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hiw-left"
-          aria-label="Open Figma: Your Learning Journey in 4 Simple Steps"
-        >
+        {/* Blue banner (no Figma link) */}
+        <div className="hiw-left" aria-label="Your Learning Journey in 4 Simple Steps">
           <div className="hiw-leftTitle">
             Your Learning Journey in<br />4 Simple Steps
           </div>
@@ -149,7 +140,7 @@ export default function HowItWorks() {
             Instructors from around the world teach millions of students on Udemy. We provide the tools and skills to teach what you love.
           </div>
           <span className="hiw-ctaBtn">Join Now</span>
-        </a>
+        </div>
 
         {/* Title + steps */}
         <div className="hiw-right">

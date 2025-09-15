@@ -1,9 +1,6 @@
 import React from "react";
 import chooseImg from "../../assets/AcadmicDetails/whychoose.png";
 
-const FIGMA_WCU_TARGET =
-  "https://www.figma.com/design/Fh3NvzFFdF4Hc5FxHPYcBa/p?t=fX3R5CvxfXnKZSct-4"; // replace with exact node if needed
-
 export default function WhyChooseUs() {
   return (
     <>
@@ -232,28 +229,15 @@ export default function WhyChooseUs() {
 
       <section className="wc-container" aria-label="Why choose us section">
         <div className="wc-leftFrame">
-          <a
-            href={FIGMA_WCU_TARGET}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="wc-head"
-            aria-label="Open Figma (Why Choose Us)"
-          >
+          <div className="wc-head">
             <h2 className="wc-title">Why Choose Us</h2>
             <div className="wc-underline" />
-          </a>
+          </div>
 
           <div className="wc-features">
-            <a
-              href={FIGMA_WCU_TARGET}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="wc-highlightBox"
-              aria-label="Open Figma (highlight card)"
-            >
+            <div className="wc-highlightBox">
               Certified & globally benchmarked content.
-            </a>
-
+            </div>
             <p className="wc-featureText">
               Flexible self-learning, accessible anytime, anywhere.
             </p>
@@ -266,19 +250,13 @@ export default function WhyChooseUs() {
           </div>
         </div>
 
-        <a
-          href={FIGMA_WCU_TARGET}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="wc-imageWrap"
-          aria-label="Open Figma (image card)"
-        >
+        <div className="wc-imageWrap">
           <img src={chooseImg} alt="Why choose us" className="wc-image" />
           <div className="wc-badge" aria-hidden>
             <div className="wc-badgeNumber">200+</div>
             <div className="wc-badgeText">Courses</div>
           </div>
-        </a>
+        </div>
       </section>
     </>
   );

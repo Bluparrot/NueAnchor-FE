@@ -1,9 +1,6 @@
 import React from "react";
 import heroBg from "../../assets/AcadmicDetails/your-image.png";
 
-const FIGMA_TRANSFORM_TARGET =
-  "https://www.figma.com/design/Fh3NvzFFdF4Hc5FxHPYcBa/p?node-id=496-6721&t=fX3R5CvxfXnKZSct-4";
-
 export default function TransformHero() {
   return (
     <>
@@ -124,11 +121,9 @@ export default function TransformHero() {
           </div>
 
           <a
-            href={FIGMA_TRANSFORM_TARGET}
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#visit"
             className="transform-hero-btn"
-            aria-label="Visit Site Now (Figma)"
+            aria-label="Visit Site Now"
           >
             Visit Site Now
           </a>

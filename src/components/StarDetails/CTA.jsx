@@ -9,9 +9,6 @@ import img6 from "../../assets/StarsDetails/img6.png";
 
 const images = [img1, img2, img3, img4, img5, img6];
 
-const FIGMA_MOBILE_TARGET =
-  "https://www.figma.com/design/Fh3NvzFFdF4Hc5FxHPYcBa/p?node-id=501-7402&t=3HTDEQSZEIJOTnab-4";
-
 const CTA = () => (
   <section
     className="relative overflow-hidden min-h-[720px] md:min-h-[400px] py-12 md:py-16"
@@ -126,18 +123,14 @@ const CTA = () => (
       {/* Mobile buttons (smaller) */}
       <div className="flex flex-col items-center gap-3 md:hidden">
         <a
-          href={FIGMA_MOBILE_TARGET}
-          target="_blank"
-          rel="noopener noreferrer"
+          href="#visit"
           className="w-[240px] mx-auto px-4 py-2.5 rounded-lg text-sm font-semibold bg-black text-[#FFD600] hover:bg-[#111] transition shadow-sm"
           aria-label="Visit Site Now"
         >
           Visit Site Now
         </a>
         <a
-          href={FIGMA_MOBILE_TARGET}
-          target="_blank"
-          rel="noopener noreferrer"
+          href="#contact"
           className="w-[240px] mx-auto px-4 py-2.5 rounded-lg text-sm font-semibold bg-white text-[#111] border border-gray-300 hover:bg-gray-50 transition"
           aria-label="Connect with Us"
         >

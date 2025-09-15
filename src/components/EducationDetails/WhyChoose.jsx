@@ -4,9 +4,6 @@ import policyImg from "../../assets/EducationDetailspage/policy.png";
 import uspImg from "../../assets/EducationDetailspage/usp.png";
 import expertiseImg from "../../assets/EducationDetailspage/experties.png";
 
-const FIGMA_WHY_TARGET =
-  "https://www.figma.com/design/Fh3NvzFFdF4Hc5FxHPYcBa/p?node-id=497-6816&t=fX3R5CvxfXnKZSct-4";
-
 const cards = [
   {
     title: "Faster Growth with Expert Guidance",
@@ -74,7 +71,7 @@ const WhyChoose = () => (
       Partner with us to unlock your institution's full potential and create lasting educational impact.
     </p>
 
-    {/* Mobile heading + subtext (Figma position) */}
+    {/* Mobile heading + subtext */}
     <div className="md:hidden text-center">
       <h2 className="text-[26px] leading-[32px] font-bold text-[#3A7F4B] mb-2">
         Why Choose NeuAnchor Education?
@@ -84,7 +81,7 @@ const WhyChoose = () => (
       </p>
     </div>
 
-    {/* Mobile: Figma-styled vertical cards */}
+    {/* Mobile: vertical cards */}
     <div className="md:hidden flex flex-col items-center gap-8 mt-2">
       {cards.map((c, i) => (
         <div
@@ -93,39 +90,28 @@ const WhyChoose = () => (
           style={{ background: i === 0 ? "#DFF1E6" : "transparent" }}
         >
           {/* Icon */}
-          <a
-            href={FIGMA_WHY_TARGET}
-            target="_blank"
-            rel="noopener noreferrer"
+          <div
             className={`mx-auto flex items-center justify-center rounded-[12px] ${
               i === 0 ? "bg-white/70" : "bg-[#F3F6F2]"
             }`}
             style={{ width: 56, height: 56 }}
-            aria-label={`${c.title} (open Figma)`}
           >
             <img src={c.img} alt={c.title} style={{ width: 40, height: 40, objectFit: "contain" }} />
-          </a>
+          </div>
 
           {/* Title */}
-          <a
-            href={FIGMA_WHY_TARGET}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ textDecoration: "none", color: "inherit" }}
+          <h3
+            className="text-center mt-3"
+            style={{
+              fontFamily: "'Figtree', sans-serif",
+              fontWeight: 600,
+              fontSize: "16px",
+              lineHeight: "130%",
+              color: "#222",
+            }}
           >
-            <h3
-              className="text-center mt-3"
-              style={{
-                fontFamily: "'Figtree', sans-serif",
-                fontWeight: 600,
-                fontSize: "16px",
-                lineHeight: "130%",
-                color: "#222",
-              }}
-            >
-              {c.title}
-            </h3>
-          </a>
+            {c.title}
+          </h3>
 
           {/* Description */}
           <p

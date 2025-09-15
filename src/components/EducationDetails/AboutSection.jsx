@@ -1,9 +1,6 @@
 import React from "react";
 import AboutImg from "../../assets/EducationDetailspage/AboutNeuAnchor.png";
 
-const FIGMA_ABOUT_TARGET =
-  "https://www.figma.com/design/Fh3NvzFFdF4Hc5FxHPYcBa/p?node-id=497-6807&t=3HTDEQSZEIJOTnab-4";
-
 const AboutSection = () => {
   return (
     <section className="flex flex-col lg:flex-row items-center justify-center gap-10 px-6 lg:px-24 py-16 bg-white">
@@ -12,14 +9,11 @@ const AboutSection = () => {
         About NeuAnchor Education
       </h2>
 
-      {/* Image (click opens Figma) */}
-      <a
-        href={FIGMA_ABOUT_TARGET}
-        target="_blank"
-        rel="noopener noreferrer"
+      {/* Image (no Figma link) */}
+      <div
         className="relative block w-full max-w-[592px] overflow-hidden rounded-[20px] lg:rounded-[32px] shadow-sm"
         style={{ aspectRatio: "592 / 388" }}
-        aria-label="Open Figma About section"
+        aria-label="NeuAnchor About section image"
       >
         <img
           src={AboutImg}
@@ -46,7 +40,7 @@ const AboutSection = () => {
             </div>
           </div>
         </div>
-      </a>
+      </div>
 
       {/* Text Content */}
       <div className="max-w-[520px] w-full">

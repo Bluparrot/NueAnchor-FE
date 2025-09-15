@@ -1,8 +1,5 @@
 import React from "react";
 
-const FIGMA_GROWTH_TARGET =
-  "https://www.figma.com/design/Fh3NvzFFdF4Hc5FxHPYcBa/p?node-id=496-6290&t=fX3R5CvxfXnKZSct-4";
-
 const AcademicGrowth = () => (
   <section className="academic-growth">
     <style>{`
@@ -50,21 +47,19 @@ const AcademicGrowth = () => (
           margin-bottom:10px;
         }
         .acg-title::after{
-          width:96px;       /* Figma-style longer underline on mobile */
+          width:96px;
           height:6px;
           margin-top:8px;
         }
         .acg-desc{
           font-size:14px;
-          max-width:340px;  /* match Figma text width on mobile */
+          max-width:340px;
         }
       }
     `}</style>
 
     <h2 className="acg-title">
-      <a href={FIGMA_GROWTH_TARGET} target="_blank" rel="noopener noreferrer">
-        A Legacy of Growth
-      </a>
+      A Legacy of Growth
     </h2>
 
     <p className="acg-desc">

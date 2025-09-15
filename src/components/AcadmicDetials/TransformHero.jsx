@@ -1,6 +1,9 @@
 import React from "react";
 import heroBg from "../../assets/AcadmicDetails/your-image.png";
 
+const FIGMA_TRANSFORM_TARGET =
+  "https://www.figma.com/design/Fh3NvzFFdF4Hc5FxHPYcBa/p?node-id=496-6721&t=fX3R5CvxfXnKZSct-4";
+
 export default function TransformHero() {
   return (
     <>
@@ -54,11 +57,11 @@ export default function TransformHero() {
           width: 244px;
           height: 66px;
           background: #fff;
-          color: #0071DC;
+          color: #1D69B5;
           font-family: "Inter", sans-serif;
           font-size: 1.15rem;
           font-weight: 600;
-          border-radius: 8px;
+          border-radius: 12px;
           border: none;
           padding-right: 22px;
           padding-left: 22px;
@@ -69,10 +72,10 @@ export default function TransformHero() {
           box-shadow: 0 2px 8px rgba(0,0,0,0.08);
           cursor: pointer;
           transition: background 0.2s;
+          text-decoration: none;
         }
-        .transform-hero-btn:hover {
-          background: #eaf4ff;
-        }
+        .transform-hero-btn:hover { background: #eaf4ff; }
+
         @media (max-width: 1500px) {
           .transform-hero-bg {
             width: 100vw;
@@ -80,24 +83,55 @@ export default function TransformHero() {
             height: 524px;
           }
         }
+
+        /* Mobile – match Figma */
         @media (max-width: 700px) {
-          .transform-hero-bg { width: 100vw; height: 340px; }
-          .transform-hero-title { font-size: 1.5rem; }
-          .transform-hero-btn { width: 100%; height: 54px; font-size: 1rem; }
+          .transform-hero-bg {
+            width: 100vw;
+            height: 500px;        /* taller hero as in Figma */
+            padding: 0 16px;
+          }
+          .transform-hero-title {
+            font-size: 2rem;      /* ~32px */
+            line-height: 1.2;
+            margin-bottom: 12px;
+          }
+          .transform-hero-desc {
+            font-size: 0.95rem;   /* ~15px */
+            line-height: 1.55;
+            max-width: 340px;     /* narrow text width like mock */
+            margin-bottom: 18px;
+          }
+          .transform-hero-btn {
+            width: 200px;         /* pill width in mock */
+            height: 50px;
+            font-size: 1rem;
+            border-radius: 12px;
+          }
         }
       `}</style>
+
       <div className="transform-hero-bg">
         <div className="transform-hero-overlay" />
         <div className="transform-hero-content">
           <div className="transform-hero-title">
             Transform Your Future with<br />Expert Led Learning
           </div>
+
           <div className="transform-hero-desc">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporincididunt ut labore et dolore magna aliqua. Ut enim ad minim
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+            temporincididunt ut labore et dolore magna aliqua. Ut enim ad minim
           </div>
-          <button className="transform-hero-btn">
+
+          <a
+            href={FIGMA_TRANSFORM_TARGET}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="transform-hero-btn"
+            aria-label="Visit Site Now (Figma)"
+          >
             Visit Site Now
-          </button>
+          </a>
         </div>
       </div>
     </>

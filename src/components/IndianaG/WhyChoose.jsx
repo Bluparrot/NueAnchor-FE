@@ -4,32 +4,25 @@ import whychoosePhoto from "../../assets/IndianaG/whychoose.png"; // ensure this
 const features = [
   {
     title: "Curated With Care",
-    desc: "Every gift is handpicked and designed for meaning, not just aesthetics.",
+    desc: "Every Gift Is Handpicked And Designed For Meaning, Not Just Aesthetics.",
     highlight: true,
   },
   {
     title: "Personalized Experiences",
-    desc: "From names & notes to custom sets, every gift feels unique.",
+    desc: "From Names & Notes To Custom Sets, Every Gift Feels Unique.",
   },
   {
     title: "Tradition Meets Modernity",
-    desc: "Rooted in cultural heritage yet curated for today's lifestyle.",
+    desc: "Rooted In Cultural Heritage Yet Crafted For Today's Lifestyle.",
   },
   {
     title: "Effortless Gifting",
-    desc: "Beautiful packaging and convenient delivery, ready to delight.",
+    desc: "Beautiful Packaging And Convenient Delivery, Ready To Delight.",
   },
 ];
 
 const HeartWhite = (
-  <svg
-    width="12"
-    height="12"
-    viewBox="0 0 24 24"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    aria-hidden
-  >
+  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden>
     <path
       d="M12 21s-8-5.5-8-11.5C4 6.46 6.46 4 9.5 4c1.57 0 2.5 1.43 2.5 3 0-1.57.93-3 2.5-3C17.54 4 20 6.46 20 9.5 20 15.5 12 21 12 21z"
       stroke="#fff"
@@ -40,10 +33,21 @@ const HeartWhite = (
   </svg>
 );
 
+const HeartRedOutline = (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden>
+    <path
+      d="M12 21s-8-5.5-8-11.5C4 6.46 6.46 4 9.5 4c1.57 0 2.5 1.43 2.5 3 0-1.57.93-3 2.5-3C17.54 4 20 6.46 20 9.5 20 15.5 12 21 12 21z"
+      stroke="#AE1A1E"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
 export default function WhyChoose() {
   return (
     <section
-      // Section frame matches Figma frame width (max 1440). Height in figma is page height; we keep content-driven height.
       style={{
         width: "100%",
         maxWidth: 1440,
@@ -53,17 +57,79 @@ export default function WhyChoose() {
         boxSizing: "border-box",
       }}
     >
-      {/* Wrapper that keeps left and right on one horizontal row on desktop */}
+      {/* MOBILE (exact Figma) */}
+      <div className="md:hidden max-w-[430px] mx-auto px-5">
+        <h3
+          className="text-[24px] font-bold text-[#111827] mb-5"
+          style={{ fontFamily: "Figtree, system-ui, -apple-system, 'Segoe UI', Roboto, Arial" }}
+        >
+          Why Choose Indiana G
+        </h3>
+
+        <div className="space-y-5">
+          {features.map((f) => (
+            <article
+              key={f.title}
+              className={`flex items-start gap-3 rounded-[10px] border p-4 ${
+                f.highlight
+                  ? "bg-[#FFF7E8] border-[#F5D7B9] shadow-[0_2px_8px_rgba(202,108,56,0.08)]"
+                  : "bg-white border-[#F3F4F6]"
+              }`}
+            >
+              {/* Icon */}
+              {f.highlight ? (
+                <div className="w-[28px] h-[28px] rounded-md bg-[#AE1A1E] flex items-center justify-center shrink-0">
+                  {HeartWhite}
+                </div>
+              ) : (
+                <div className="w-[28px] h-[28px] flex items-center justify-center shrink-0">
+                  {HeartRedOutline}
+                </div>
+              )}
+
+              {/* Text */}
+              <div>
+                <h4
+                  className="text-[#111827] font-semibold text-[16px] leading-5 mb-1"
+                  style={{ fontFamily: "Figtree, system-ui, -apple-system, 'Segoe UI', Roboto, Arial" }}
+                >
+                  {f.title}
+                </h4>
+                <p
+                  className="text-[#4B5563] text-[13px] leading-[18px]"
+                  style={{ fontFamily: "Figtree, system-ui, -apple-system, 'Segoe UI', Roboto, Arial" }}
+                >
+                  {f.desc}
+                </p>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        {/* Bottom image */}
+        <div className="mt-6 rounded-[14px] overflow-hidden">
+          <img
+            src={whychoosePhoto}
+            alt="Hands wrapping a gift"
+            className="w-full h-auto object-cover block"
+            style={{ aspectRatio: "328 / 244" }}
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+      </div>
+
+      {/* DESKTOP (unchanged layout, but hidden on mobile) */}
       <div
+        className="hidden md:flex" // show only from md and up
         style={{
-          display: "flex",
           gap: 32,
           alignItems: "flex-start",
           justifyContent: "space-between",
-          flexWrap: "nowrap", // keep on one line on desktop
+          flexWrap: "nowrap",
         }}
       >
-        {/* LEFT group exactly sized per Figma */}
+        {/* LEFT group */}
         <div
           style={{
             width: 612.0087890625,
@@ -73,7 +139,6 @@ export default function WhyChoose() {
             boxSizing: "border-box",
           }}
         >
-          {/* Heading — exact Figma text properties and forced to single line */}
           <h3
             style={{
               margin: 0,
@@ -82,20 +147,16 @@ export default function WhyChoose() {
               fontWeight: 700,
               fontStyle: "normal",
               fontSize: "28px",
-              lineHeight: "100%", // 1:1
+              lineHeight: "100%",
               letterSpacing: "0",
               color: "#111827",
               width: "max-content",
               whiteSpace: "nowrap",
-              // optional width/height frame from figma:
-              // width: 292,
-              // height: 34,
             }}
           >
             Why Choose Indiana G
           </h3>
 
-          {/* Features grid (2 columns) */}
           <div
             style={{
               marginTop: 8,
@@ -104,7 +165,7 @@ export default function WhyChoose() {
               gap: "12px 12px",
             }}
           >
-            {features.map((f, idx) => (
+            {features.map((f) => (
               <article
                 key={f.title}
                 aria-label={f.title}
@@ -116,7 +177,7 @@ export default function WhyChoose() {
                   borderRadius: 6,
                   backgroundColor: f.highlight ? "#FFF7E8" : "#FFFFFF",
                   border: f.highlight ? "1px solid #F5D7B9" : "1px solid #F3F4F6",
-                  width: 298, // two fit inside 612 with gaps
+                  width: 298,
                   height: 121,
                   boxSizing: "border-box",
                   boxShadow: f.highlight ? "0 2px 8px rgba(202,108,56,0.08)" : "none",

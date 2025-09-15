@@ -1,6 +1,9 @@
 import React from "react";
 import chooseImg from "../../assets/AcadmicDetails/whychoose.png";
 
+const FIGMA_WCU_TARGET =
+  "https://www.figma.com/design/Fh3NvzFFdF4Hc5FxHPYcBa/p?t=fX3R5CvxfXnKZSct-4"; // replace with exact node if needed
+
 export default function WhyChooseUs() {
   return (
     <>
@@ -9,7 +12,7 @@ export default function WhyChooseUs() {
 
         .wc-container {
           position: relative;
-          min-height: 480px; /* reduced vertical space */
+          min-height: 480px;
           box-sizing: border-box;
           background: #fff;
           padding-top: 0px;
@@ -19,11 +22,8 @@ export default function WhyChooseUs() {
           position: absolute;
           width: 461px;
           height: 595.25px;
-          top: 0px;           /* move up */
+          top: 0px;
           left: 95px;
-          transform: rotate(0deg);
-          opacity: 1;
-          box-sizing: border-box;
           display: flex;
           flex-direction: column;
           align-items: flex-start;
@@ -35,6 +35,7 @@ export default function WhyChooseUs() {
           font-size: 26px;
           color: #222222;
           margin: 0 0 8px 0;
+          text-align: left;
         }
 
         .wc-underline {
@@ -79,14 +80,12 @@ export default function WhyChooseUs() {
           position: absolute;
           width: 500px;
           height: 400px;
-          top: 5px;           /* move up */
+          top: 5px;
           left: 727px;
           border-radius: 14.91px;
           overflow: hidden;
-          transform: rotate(0deg);
-          opacity: 1;
-          box-shadow: 0 0 0 1px rgba(0,0,0,0.02);
           background: #eee;
+          box-shadow: 0 0 0 1px rgba(0,0,0,0.02);
         }
 
         .wc-image {
@@ -126,6 +125,7 @@ export default function WhyChooseUs() {
           color: #111827;
         }
 
+        /* Tablet/desktop stacking (unchanged) */
         @media (max-width: 1200px) {
           .wc-imageWrap, .wc-leftFrame {
             position: relative;
@@ -137,39 +137,148 @@ export default function WhyChooseUs() {
           .wc-leftFrame { height: auto; }
           .wc-container { min-height: auto; padding: 48px 24px; }
         }
+
+        /* Mobile – match requested order: title -> image -> content */
+        @media (max-width: 767px) {
+          .wc-container {
+            padding: 20px 16px 28px;
+            display: flex;              /* enable ordering */
+            flex-direction: column;
+          }
+          /* Flatten the left frame so children can be ordered with the image */
+          .wc-leftFrame {
+            position: static;
+            width: 100%;
+            display: contents;          /* makes its children flow at container level */
+          }
+
+          /* Anchor that wraps title + underline */
+          .wc-head {
+            order: 1;
+            align-self: center;
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: inherit;
+          }
+
+          .wc-title {
+            text-align: center;
+            font-size: 26px;
+            margin-bottom: 6px;
+          }
+          .wc-underline {
+            width: 96px;
+            height: 6px;
+            margin: 0 auto 14px auto;
+            border-radius: 9999px;
+          }
+
+          /* Image comes after heading */
+          .wc-imageWrap {
+            order: 2;
+            position: relative;
+            width: 100%;
+            height: 220px;
+            margin: 0 0 14px 0;
+            border-radius: 16px;
+            overflow: hidden;
+          }
+          .wc-badge {
+            width: 88px;
+            height: 88px;
+            left: 14px;
+            bottom: 14px;
+          }
+
+          /* Features/content after image */
+          .wc-features {
+            order: 3;
+            width: 100%;
+            gap: 16px;
+            margin-top: 8px;
+          }
+          .wc-highlightBox {
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+            background: #E7F2FF;
+            border-radius: 12px;
+            padding: 14px 16px 14px 20px;
+            font-size: 16px;
+            line-height: 22px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+          }
+          .wc-highlightBox::before {
+            content: "";
+            position: absolute;
+            left: 8px;
+            top: 10px;
+            bottom: 10px;
+            width: 6px;
+            background: #1D69B5;
+            border-radius: 4px;
+            box-shadow: 2px 0 0 rgba(29,105,181,0.15);
+          }
+          .wc-featureText {
+            max-width: 100%;
+            font-size: 15px;
+            line-height: 24px;
+            color: #222;
+          }
+        }
       `}</style>
 
       <section className="wc-container" aria-label="Why choose us section">
-        <div className="wc-leftFrame" aria-hidden={false}>
-          <h2 className="wc-title">Why Choose Us</h2>
-          <div className="wc-underline" />
+        <div className="wc-leftFrame">
+          <a
+            href={FIGMA_WCU_TARGET}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="wc-head"
+            aria-label="Open Figma (Why Choose Us)"
+          >
+            <h2 className="wc-title">Why Choose Us</h2>
+            <div className="wc-underline" />
+          </a>
 
           <div className="wc-features">
-            <div className="wc-highlightBox">
+            <a
+              href={FIGMA_WCU_TARGET}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="wc-highlightBox"
+              aria-label="Open Figma (highlight card)"
+            >
               Certified & globally benchmarked content.
-            </div>
+            </a>
 
             <p className="wc-featureText">
               Flexible self-learning, accessible anytime, anywhere.
             </p>
-
             <p className="wc-featureText">
               Designed for both individual growth and organizational upskilling.
             </p>
-
             <p className="wc-featureText">
               Backed by 20+ years of expertise in education innovation.
             </p>
           </div>
         </div>
 
-        <div className="wc-imageWrap" aria-hidden>
+        <a
+          href={FIGMA_WCU_TARGET}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="wc-imageWrap"
+          aria-label="Open Figma (image card)"
+        >
           <img src={chooseImg} alt="Why choose us" className="wc-image" />
           <div className="wc-badge" aria-hidden>
             <div className="wc-badgeNumber">200+</div>
             <div className="wc-badgeText">Courses</div>
           </div>
-        </div>
+        </a>
       </section>
     </>
   );

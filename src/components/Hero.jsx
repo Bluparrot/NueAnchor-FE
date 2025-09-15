@@ -1,62 +1,65 @@
 import React from 'react';
-import image from '../assets/LandingPage/Hero.svg'
+import image from '../assets/LandingPage/Hero.png';    // Desktop image
+import image2 from '../assets/LandingPage/Hero2.png';  // Mobile image
 
 export const Hero = () => {
   return (
-		<section className="bg-[#E2F4FF] h-[90vh]">
-			<div className=" pl-6 lg:pl-16 ">
-				<div className="grid lg:grid-cols-2 gap-6 lg:gap-6 items-center">
-					{/* Left Content */}
-					<div className="space-y-6 lg:space-y-8 -mt-8">
-						{/* Badge */}
-						<div className="inline-flex items-center  px-4 py-2 bg-badge rounded-full text-sm font-medium text-yellow-800 border border-[#BFAA2C]">
-							15 years of building a Legacy
-						</div>
+    <section
+      className={`
+        bg-[#F4F3EF]      /* mobile */
+        lg:bg-[#E2F4FF]   /* desktop */
+        lg:h-[90vh]
+      `}
+    >
+      <div className="mx-auto w-full max-w-7xl px-4 pt-6 pb-0 lg:px-16 lg:pt-0">
+        <div className="flex flex-col lg:grid lg:grid-cols-2 lg:gap-6 lg:h-[90vh] lg:items-center">
 
-						{/* Main Heading */}
-						<div className="space-y-4">
-							<h1 className="text-3xl md:text-4xl lg:text-[40px] font-bold leading-tight font-baskerville  ">
-								<span className="font-baskerville text-gray-900">
-									Empowering Growth,
-								</span>
-								<br />
-								<span className="text-[#1D69B5]">
-									Wellness, and Community
-								</span>
-							</h1>
+          {/* Left Content */}
+          <div className="order-1 w-full lg:order-none">
+            <div className="space-y-5 lg:space-y-8 lg:-mt-8">
+              <div className="inline-flex items-center px-3 py-1.5 text-[11px] font-medium rounded-full border border-[#BFAA2C] bg-badge text-yellow-800 lg:px-4 lg:py-2 lg:text-sm">
+                15 years of building a Legacy
+              </div>
+              <div className="space-y-4">
+                <h1 className="font-baskerville font-bold text-[26px] leading-[1.25] md:text-[30px] md:leading-snug lg:text-[40px] lg:leading-tight text-gray-900">
+                  <span className="block">Empowering Growth,</span>
+                  <span className="text-[#1D69B5]">Wellness, and Community</span>
+                </h1>
+                <p className="font-Figtree font-medium text-[14px] leading-[1.55] md:text-[15px] lg:text-[17px] lg:leading-relaxed text-gray-600 max-w-[560px]">
+                  A family of brands delivering solutions in education, careers, healthcare, events, hospitality, and gifting.
+                </p>
+              </div>
+            </div>
+          </div>
 
-							<p className="text-lg md:text-[17px] font-medium text-gray-600 leading-relaxed max-w-lg font-Figtree">
-								Welcome to NeuAnchor, your comprehensive
-								destination for holistic growth and well-being.
-								Offering specialised consultations for special
-								needs, education, career guidance, leadership
-								and motivational conferences, self-paced online
-								life skills courses, bespoke gifting, and
-								curated specialised meals, we bring together a
-								diverse range of services under one trusted
-								umbrella. Explore personalised solutions
-								designed to support your journey and anchor your
-								success across every facet of life.
-							</p>
-						</div>
-					</div>
+          {/* Mobile Image (responsive) */}
+          <div className="block lg:hidden order-2 mt-6">
+            {/* Aspect-ratio wrapper (keeps original 375x363 = 0.968 ratio) */}
+            <div className="relative w-full overflow-hidden"
+                 style={{ aspectRatio: '375 / 363' }}>
+              <img
+                src={image2}
+                alt="Hero"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+            </div>
+          </div>
 
-					{/* Right Image */}
-					<div className="flex justify-end items-stretch h-[90vh] w-full p-0 m-0">
-						<img
-							src={image}
-							alt="Community and growth"
-							className="w-full h-full object-fit"
-							style={{
-								height: "100%",
-								width: "100%",
-								objectPosition: "right",
-							}}
-						/>
-					</div>
-				</div>
-			</div>
-		</section>
+          {/* Desktop Image (unchanged) */}
+          <div className="hidden lg:flex order-2 lg:order-none justify-end">
+            <div className="w-full h-[230px] sm:h-[250px] md:h-[300px] lg:h-[90vh] overflow-hidden">
+              <img
+                src={image}
+                alt="Hero"
+                className="w-full h-full object-cover lg:object-fill"
+                style={{ objectPosition: 'center right' }}
+              />
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
   );
 };
 

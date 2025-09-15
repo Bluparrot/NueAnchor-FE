@@ -5,6 +5,7 @@ import './App.css'
 import Homepage from './pages/Homepage'
 import { Routes, Route, Link } from "react-router-dom";
 import News from './pages/News&Insight'
+import NewsDetailPage from './pages/NewsDetailPage'
 import ContactPage from './pages/ContactPage'
 import AboutUs from './pages/AboutUs'
 import CareerDetails from './pages/CareerDetails'
@@ -26,6 +27,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Homepage />} />
             <Route path="/news" element={<News />} />
+            <Route path="/news/:slug" element={<NewsDetailPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/AboutUs" element={<AboutUs />} />
             <Route path="/brands" element={<CareerDetails />} />

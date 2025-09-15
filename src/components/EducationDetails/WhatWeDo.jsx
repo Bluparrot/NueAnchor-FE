@@ -4,6 +4,9 @@ import StrategyImg from "../../assets/EducationDetailspage/StrategicGuidance.png
 import InclusiveImg from "../../assets/EducationDetailspage/InclusiveDesign.png";
 import WorkshopImg from "../../assets/EducationDetailspage/WorkshopsTraining.png";
 
+const FIGMA_WWD_TARGET =
+  "https://www.figma.com/design/Fh3NvzFFdF4Hc5FxHPYcBa/p?node-id=501-6963&t=fX3R5CvxfXnKZSct-4";
+
 const cardData = [
   {
     img: SetupImg,
@@ -62,45 +65,50 @@ const cardData = [
 const WhatWeDo = () => (
   <>
     <style>{`
-      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Figtree:wght@600&display=swap');
+
       .wwd-title {
         font-family: 'Poppins', sans-serif;
         font-weight: 600;
         font-size: 32px;
         line-height: 128%;
-        letter-spacing: 0%;
-        vertical-align: middle;
         color: #3A7F4B;
         width: 200px;
         height: 41px;
         margin: 0 auto 16px auto;
         text-align: center;
-        opacity: 1;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        display: flex; align-items: center; justify-content: center;
       }
+
+      /* NEW: desktop/tablet default for the subheading (centered) */
+      .wwd-sub {
+        font-family: 'Poppins', sans-serif;
+        font-size: 18px;
+        line-height: 128%;
+        color: #4B5563;
+        max-width: 900px;
+        margin: 0 auto 24px auto; /* centers the line */
+        text-align: center;
+      }
+
       .wwd-card-title {
         width: 100%;
         max-width: 100%;
         font-family: 'Figtree', sans-serif;
         font-weight: 600;
-        font-size: 15px; /* smaller heading size */
+        font-size: 15px; /* desktop/tablet default */
         line-height: 134%;
         color: #222;
-        opacity: 1;
         margin-bottom: 10px;
-        display: block;
         text-align: left;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: clip;
-        box-sizing: border-box;
       }
       .wwd-card-row {
         display: flex;
         gap: 20px;
-        justify-content: center; /* Center frames horizontally */
+        justify-content: center;
         flex-wrap: nowrap;
         overflow-x: auto;
         padding-bottom: 8px;
@@ -126,15 +134,15 @@ const WhatWeDo = () => (
         width: 100%;
         height: 200px;
         object-fit: cover;
-        border-radius: 8px;
-        margin-bottom: 8px;
+        border-radius: 12px;
+        margin-bottom: 12px;
       }
       .wwd-card-desc {
         font-family: 'Poppins', sans-serif;
         font-size: 12px;
-        color: #222;
-        margin-bottom: 8px;
-        line-height: 1.5;
+        color: #4B5563;
+        margin-bottom: 10px;
+        line-height: 1.55;
       }
       .wwd-card-list {
         list-style: none;
@@ -157,48 +165,103 @@ const WhatWeDo = () => (
         height: 5px;
         background: #222;
         border-radius: 50%;
-        margin-right: 7px;
+        margin-right: 8px;
         margin-top: 5px;
         flex-shrink: 0;
       }
+
+      /* Mobile-only overrides to match Figma */
+      @media (max-width: 767px) {
+        .wwd-title { font-size: 28px; margin-bottom: 8px; }
+        .wwd-sub {
+          font-size: 14px;
+          line-height: 128%;
+          max-width: 330px;
+          margin: 0 auto 18px auto;
+          color: #4B5563;
+          text-align: center;
+        }
+        .wwd-card-row {
+          flex-direction: column;
+          gap: 16px;
+          overflow: visible;
+        }
+        .wwd-card-frame {
+          width: 100%;
+          max-width: 100%;
+          min-width: 0;
+          height: auto;
+          padding: 16px;
+          border-radius: 16px;
+          background: #FFFFFF;
+          box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+        }
+        .wwd-card-frame.inclusive {
+          background: #F7FBF9 !important;
+          border-color: #B6E2C6 !important;
+        }
+        .wwd-card-img {
+          height: 176px; /* Figma-like image height */
+          border-radius: 12px;
+          margin-bottom: 12px;
+        }
+        .wwd-card-title {
+          font-size: 18px; /* Figma title size on mobile */
+          white-space: normal;
+          text-overflow: initial;
+          margin-bottom: 8px;
+        }
+        .wwd-card-desc {
+          font-size: 13px;
+          margin-bottom: 10px;
+        }
+        .wwd-card-list li {
+          font-size: 13px;
+          margin-bottom: 10px;
+        }
+        .wwd-card-list li span.dot { width: 6px; height: 6px; }
+      }
     `}</style>
-    <section className="px-2 py-8 bg-white" style={{ fontFamily: "'Poppins', sans-serif" }}>
-      <h2 className="wwd-title">
-        What We Do
-      </h2>
-      <p
-        className="text-center"
-        style={{
-          fontFamily: "'Poppins', sans-serif",
-          fontWeight: 400,
-          fontSize: "14px",
-          lineHeight: "128%",
-          letterSpacing: "0%",
-          maxWidth: "500px",
-          margin: "0 auto",
-          marginBottom: "24px",
-        }}
-      >
+
+    <section className="px-4 py-8 bg-white" style={{ fontFamily: "'Poppins', sans-serif" }}>
+      <h2 className="wwd-title">What We Do</h2>
+
+      <p className="wwd-sub" >
         Comprehensive solutions to transform your educational institution and prepare students for tomorrow
       </p>
+
       <div className="wwd-card-row">
         {cardData.map((card, idx) => (
           <div
             key={idx}
-            className={`wwd-card-frame ${card.cardStyle}`}
+            className={`wwd-card-frame ${card.cardStyle} ${idx === 2 ? "inclusive" : ""}`}
           >
-            <img
-              src={card.img}
-              alt={card.title}
-              className="wwd-card-img"
-              style={{ border: idx === 2 ? "2px solid #B6E2C6" : "none" }}
-            />
-            <h3 className="wwd-card-title">
-              {card.title}
-            </h3>
-            <p className="wwd-card-desc">
-              {card.desc}
-            </p>
+            <a
+              href={FIGMA_WWD_TARGET}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${card.title} (open Figma)`}
+              style={{ display: "block", width: "100%" }}
+            >
+              <img
+                src={card.img}
+                alt={card.title}
+                className="wwd-card-img"
+                style={{ border: idx === 2 ? "2px solid #B6E2C6" : "none" }}
+              />
+            </a>
+
+            <a
+              href={FIGMA_WWD_TARGET}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
+              <h3 className="wwd-card-title">{card.title}</h3>
+            </a>
+
+            <p className="wwd-card-desc">{card.desc}</p>
+
             <ul className="wwd-card-list">
               {card.bullets.map((item, i) => (
                 <li key={i}>

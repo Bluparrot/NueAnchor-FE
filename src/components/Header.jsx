@@ -4,12 +4,13 @@ import { Link, useLocation } from 'react-router-dom';
 
 // Brand previews for the mobile "Our Brands" panel
 import academiesImg from "../assets/LandingPage/academies.png";
-import educationImg from "../assets/LandingPage/education.png";
-import careersImg from "../assets/LandingPage/careers.png";
-import hospitalityImg from "../assets/LandingPage/hospitality.png";
-import conferencesImg from "../assets/LandingPage/conferences.png";
-import healingImg from "../assets/LandingPage/healing.png";
-import indianaImg from "../assets/IndianaG/indiana-hero.png"; // NEW
+import educationImg from "../assets/LandingPage/education1.png";
+import careersImg from "../assets/LandingPage/careers1.png";
+import hospitalityImg from "../assets/LandingPage/hospitality1.png";
+import conferencesImg from "../assets/LandingPage/conferences1.png";
+import starsImg from "../assets/LandingPage/stars1.png"; // NEW
+import healingImg from "../assets/LandingPage/healing1.png";
+import indianaImg from "../assets/LandingPage/indiana1.png"; // NEW
 // If you have a Stars image, import it and replace null below:
 // import starsImg from "../assets/StarDetails/your-stars-image.png";
 
@@ -88,7 +89,7 @@ const Header = () => {
       titleBold: "Stars",                       // NEW
       desc: "Showcasing outstanding talents and inspiring stories.", // NEW
       path: "/stars",                           // NEW
-      img: null /* replace with starsImg when available */ // NEW
+      img: starsImg
     },
     {
       key: "healing",
@@ -124,7 +125,7 @@ const Header = () => {
           <img
             src={logo}
             alt="NeuAnchor logo"
-            className="h-11 w-auto object-contain"
+            className="h-16 w-auto object-contain" // Increased from h-11 to h-16 for a larger logo
           />
         </div>
 

@@ -11,7 +11,7 @@ export const Hero = () => {
         lg:h-[90vh]
       `}
     >
-      <div className="mx-auto w-full max-w-7xl px-4 pt-6 pb-0 lg:px-16 lg:pt-0">
+      <div className="mx-auto w-full max-w-7xl px-4 pt-6 pb-0  lg:pt-0">
         <div className="flex flex-col lg:grid lg:grid-cols-2 lg:gap-6 lg:h-[90vh] lg:items-center">
 
           {/* Left Content */}
@@ -21,12 +21,17 @@ export const Hero = () => {
                 15 years of building a Legacy
               </div>
               <div className="space-y-4">
-                <h1 className="font-baskerville font-bold text-[26px] leading-[1.25] md:text-[30px] md:leading-snug lg:text-[40px] lg:leading-tight text-gray-900">
+                <h1 className="font-baskerville font-bold text-[48px] leading-[1.25] md:text-[30px] md:leading-snug lg:text-[40px] lg:leading-tight text-gray-900">
                   <span className="block">Empowering Growth,</span>
                   <span className="text-[#1D69B5]">Wellness, and Community</span>
                 </h1>
                 <p className="font-Figtree font-medium text-[14px] leading-[1.55] md:text-[15px] lg:text-[17px] lg:leading-relaxed text-gray-600 max-w-[560px]">
-                  A family of brands delivering solutions in education, careers, healthcare, events, hospitality, and gifting.
+                  <span className="block lg:hidden">
+                    A family of brands delivering solutions in education, careers, healthcare, events, hospitality, and gifting.
+                  </span>
+                  <span className="hidden lg:block">
+                    Welcome to NeuAnchor, your comprehensive destination for holistic growth and well-being. Offering specialised consultations for special needs, education, career guidance, leadership and motivational conferences, self-paced online life skills courses, bespoke gifting, and curated specialised meals, we bring together a diverse range of services under one trusted umbrella. Explore personalised solutions designed to support your journey and anchor your success across every facet of life.
+                  </span>
                 </p>
               </div>
             </div>
@@ -38,7 +43,7 @@ export const Hero = () => {
             <div className="relative w-full overflow-hidden"
                  style={{ aspectRatio: '375 / 363' }}>
               <img
-                src={image2}
+                src={image}
                 alt="Hero"
                 className="absolute inset-0 w-full h-full object-cover"
               />

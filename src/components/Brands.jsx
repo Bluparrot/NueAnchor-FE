@@ -1,15 +1,5 @@
 import React from 'react';
 
-/* === Mobile specific brand images === */
-import mobAcademies from '../assets/LandingPage/academies.png';
-import mobConferences from '../assets/LandingPage/conferences.png';
-import mobHealing from '../assets/LandingPage/healing.png';
-import mobHospitality from '../assets/LandingPage/hospitality.png';
-import mobCareers from '../assets/LandingPage/careers.png';
-import mobEducation from '../assets/LandingPage/education.png';
-import mobStars from '../assets/LandingPage/stars.png';
-import mobIndiana from '../assets/LandingPage/IndianaG.png';
-
 /* === Desktop specific brand images (replace paths with actual exported assets) === */
 import deskAcademies from '../assets/LandingPage/academies.png';
 import deskConferences from '../assets/LandingPage/conferences1.png';
@@ -20,20 +10,8 @@ import deskEducation from '../assets/LandingPage/education1.png';
 import deskStars from '../assets/LandingPage/stars1.png';
 import deskIndiana from '../assets/LandingPage/indiana1.png';
 
-/* Mobile data with dedicated images */
-const mobileBrands = [
-  { key: 'academies', title: 'NeuAnchor Academies', description: 'Learn at your own pace with globally recognized, certified online self-learning courses.', image: mobAcademies, special: true },
-  { key: 'conferences', title: 'NeuAnchor Conferences', description: 'Hosting impactful conferences with global leaders, keynote sessions, and panel discussions on leadership & motivation.', image: mobConferences },
-  { key: 'healing', title: 'NeuAnchor Healing', description: 'Delivering holistic healing through FMMA courses, functional medicine, and advanced therapies.', image: mobHealing },
-  { key: 'hospitality', title: 'NeuAnchor Hospitality', description: 'Offering specialized catering with curated diets, dehydrated foods, and premium culinary solutions.', image: mobHospitality },
-  { key: 'careers', title: 'NeuAnchor Careers', description: 'Guiding students and professionals with career, leadership, and university counselling for a brighter tomorrow.', image: mobCareers },
-  { key: 'education', title: 'NeuAnchor Education', description: 'Shaping the future of learning by building and auditing schools, with innovative marketing and franchising solutions.', image: mobEducation },
-  { key: 'stars', title: 'NeuAnchor Stars', description: 'Empowering special families through consultancy, counselling, workshops, and expert-led programs for inclusion and growth.', image: mobStars },
-  { key: 'indiana', title: 'INDIANA G', description: 'Redefining corporate and personal gifting with unique retail and online gifting solutions.', image: mobIndiana },
-];
-
-/* Replace old desktopBrands (cardImg) with new image set */
-const desktopBrands = [
+/* Use desktopBrands for both views */
+const brands = [
   { title: 'NeuAnchor Academies', description: 'Learn at your own pace with globally recognized, certified online self-learning courses.', image: deskAcademies },
   { title: 'NeuAnchor Conferences', description: 'Hosting impactful conferences with global leaders, keynote sessions, and panel discussions on leadership & motivation.', image: deskConferences },
   { title: 'NeuAnchor Healing', description: 'Delivering holistic healing through FMMA courses, functional medicine, and advanced therapies.', image: deskHealing },
@@ -74,7 +52,7 @@ const Brands = () => {
       id="brands"
       className="bg-[#F5F5F5] bg-[url('assets/LandingPage/Anchor.png')] bg-center bg-contain bg-no-repeat"
     >
-      {/* MOBILE VERSION (updated responsive cards) */}
+      {/* MOBILE VERSION (now uses desktop images) */}
       <div className="block lg:hidden px-4 pt-10 pb-14 max-w-[430px] mx-auto">
         <header className="text-center mb-6">
           <p className="text-[26px] font-semibold tracking-wide text-gray-600 mb-2">
@@ -86,13 +64,13 @@ const Brands = () => {
         </header>
 
         <ul className="flex flex-col gap-4">
-          {mobileBrands.map((b) => (
+          {brands.map((b, idx) => (
             <li
-              key={b.key}
+              key={idx}
               className="bg-white rounded-2xl px-4 pt-4 pb-5 shadow-sm border border-[#ECECEC] flex flex-col"
             >
               <h3 className="text-[13.5px] leading-snug font-semibold text-gray-900 mb-2">
-                {renderTitleMobile(b.title)}
+                {b.title}
               </h3>
               <p
                 className="mb-4"
@@ -111,80 +89,49 @@ const Brands = () => {
               >
                 {b.description}
               </p>
-
-              {/* Image block */}
               <div
-                className={`relative w-full overflow-hidden rounded-xl border border-[#E2E2E2] bg-[#FAFAFA] ${
-                  b.special ? 'mb-3' : 'mb-3'
-                }`}
-                style={{ aspectRatio: '328 / 180' }}
+                className="relative w-full overflow-hidden rounded-xl border border-[#E2E2E2] bg-[#FAFAFA] mb-3"
+                style={{
+                  width: "100%",
+                  height: "120px", // smaller height for mobile
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
               >
                 <img
                   src={b.image}
                   alt={b.title}
-                  className="w-full h-full object-cover"
+                  className="w-auto h-full object-contain"
                   loading="lazy"
                   decoding="async"
                   draggable="false"
                 />
-
-                {/* Special overlay content for Academies (logo + link inside) */}
-                {b.special && (
-                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-white">
-                    <img
-                      src={b.image}
-                      alt="NeuAnchor Academies"
-                      className="w-auto h-[72%] object-contain"
-                      draggable="false"
-                    />
-                    <button
-                      type="button"
-                      className="text-[#1D69B5] text-[12px] font-semibold inline-flex items-center gap-1"
-                    >
-                      Visit Now
-                      <svg
-                        className="w-3.5 h-3.5"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M9 5l7 7-7 7" />
-                      </svg>
-                    </button>
-                  </div>
-                )}
               </div>
-
-              {/* Visit link (outside image for non-special cards) */}
-              {!b.special && (
-                <button
-                  type="button"
-                  className="group inline-flex items-center gap-1 text-[11.5px] font-medium text-[#1D69B5]"
-                  aria-label={`Visit ${b.title}`}
+              <button
+                type="button"
+                className="group inline-flex items-center gap-1 text-[11.5px] font-medium text-[#1D69B5]"
+                aria-label={`Visit ${b.title}`}
+              >
+                Visit Now
+                <svg
+                  className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  viewBox="0 0 24 24"
                 >
-                  Visit Now
-                  <svg
-                    className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M9 5l7 7-7 7" />
-                  </svg>
-                </button>
-              )}
+                  <path d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
             </li>
           ))}
         </ul>
       </div>
 
-      {/* DESKTOP VERSION (revised spacing / layout) */}
+      {/* DESKTOP VERSION (unchanged, uses same images) */}
       <div className="hidden lg:block py-20 px-16 max-w-7xl mx-auto">
         <div className="text-center mb-14">
           <p className="text-gray-700 font-Figtree text-sm font-semibold tracking-wide uppercase mb-3">
@@ -194,8 +141,6 @@ const Brands = () => {
             Discover the World of <span className="bg-gradient-to-r from-[#1D69B5] via-[#7758A1] to-[#B62A88] bg-clip-text text-transparent">NeuAnchor</span>
           </h2>
         </div>
-
-        {/* Use responsive grid with consistent gaps (no collage/touching) */}
         <div
           className="
             grid
@@ -206,7 +151,7 @@ const Brands = () => {
             items-start
           "
         >
-          {desktopBrands.map((brand, index) => (
+          {brands.map((brand, index) => (
             <div
               key={index}
               className="
@@ -221,15 +166,14 @@ const Brands = () => {
                 duration-300
               "
               style={{
-                width: '100%',              // fill column
-                minHeight: '373px',         // Figma height
+                width: '100%',
+                minHeight: '373px',
                 boxSizing: 'border-box',
               }}
             >
-              {/* Text block */}
               <div className="mb-6">
                 <h3 className="text-[14px] font-semibold text-gray-900 leading-snug mb-3">
-                  {renderDesktopTitle(brand.title)}
+                  {brand.title}
                 </h3>
                 <p
                   className="text-[#4A4A4A] text-[12px] leading-[1.45] font-normal font-Figtree"
@@ -238,8 +182,6 @@ const Brands = () => {
                   {brand.description}
                 </p>
               </div>
-
-              {/* Image / action frame */}
               <div className="mt-auto">
                 <div
                   className="

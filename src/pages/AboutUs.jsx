@@ -10,10 +10,11 @@ import mission from '../assets/AboutUs/mission.svg';
 
 const AboutUs = () => {
   const teamMembers = [
-    { id: 1, name: "Full Name", designation: "DESIGNATION", imageUrl: profile, isActive: false },
-    { id: 2, name: "Full Name", designation: "DESIGNATION", imageUrl: profile, isActive: false },
-    { id: 3, name: "Full Name", designation: "DESIGNATION", imageUrl: profile, isActive: false },
-    { id: 4, name: "Full Name", designation: "DESIGNATION", imageUrl: profile, isActive: false }
+    { id: 1, name: "Ms. Shuchi Chopra", designation: "Chief Executive Officer", imageUrl: profile, isActive: false },
+    { id: 2, name: "Mr. Nitin Kalra", designation: "Chief Advisor- Marketing", imageUrl: profile, isActive: false },
+    { id: 3, name: "Mr. Ranveer Singh Saini", designation: "Chief Inspirational Officer", imageUrl: profile, isActive: false },
+    { id: 4, name: "Mr. Ranvijay Singh Saini", designation: "Head of Internship Recruitment", imageUrl: profile, isActive: false },
+    { id: 5, name: "Mr. Achal Jain", designation: "Chief Advisor- IT", imageUrl: profile, isActive: false }
   ];
 
   return (
@@ -23,19 +24,20 @@ const AboutUs = () => {
       <div
         className="block md:hidden w-full bg-white"
         style={{
-          width: "375px",
+          width: "100vw", // Changed from 375px to full viewport width
           minHeight: "1150.69px",
           paddingTop: "40px",
-          paddingRight: "20px",
+          paddingRight: "0px", // Remove side gaps
           paddingBottom: "40px",
-          paddingLeft: "20px",
+          paddingLeft: "0px", // Remove side gaps
           gap: "28px",
           opacity: 1,
           margin: "0 auto",
+          boxSizing: "border-box",
         }}
       >
         {/* Hero Section */}
-        <div style={{ marginBottom: "28px", textAlign: "left" }}>
+        <div style={{ marginBottom: "28px", textAlign: "left", padding: "0 20px" }}>
           <h1
             className="font-bold text-black leading-tight"
             style={{
@@ -66,7 +68,8 @@ const AboutUs = () => {
             src={Hero}
             alt="Happy family"
             style={{
-              width: "335px",
+              width: "100vw", // Full width
+              maxWidth: "100%",
               height: "253px",
               borderRadius: "18px",
               objectFit: "cover",
@@ -82,7 +85,7 @@ const AboutUs = () => {
         <div style={{ height: "28px" }} />
 
         {/* Our Story Section */}
-        <div style={{ marginBottom: "28px", textAlign: "center" }}>
+        <div style={{ marginBottom: "28px", textAlign: "center", padding: "0 20px" }}>
           <p
             className="text-base font-semibold text-black mb-4"
             style={{
@@ -110,7 +113,8 @@ const AboutUs = () => {
             src={Story}
             alt="Professional woman smiling"
             style={{
-              width: "335px",
+              width: "100vw", // Full width
+              maxWidth: "100%",
               height: "203px",
               objectFit: "cover",
               borderRadius: "18px",
@@ -143,11 +147,12 @@ const AboutUs = () => {
         {/* Mission Card */}
         <div
           style={{
-            width: "335px",
+            width: "100vw", // Full width
+            maxWidth: "100%",
             height: "210px",
             background: "#1D69B5",
             borderRadius: "20px",
-            padding: "28px 24px",
+            padding: "28px 20px",
             marginBottom: "28px",
             boxSizing: "border-box",
             display: "flex",
@@ -185,7 +190,8 @@ const AboutUs = () => {
         {/* Mission Image */}
         <div
           style={{
-            width: "335px",
+            width: "100vw", // Full width
+            maxWidth: "100%",
             height: "210px",
             borderRadius: "20px",
             overflow: "hidden",
@@ -197,7 +203,8 @@ const AboutUs = () => {
             src={mission}
             alt="Group collaborating"
             style={{
-              width: "100%",
+              width: "100vw", // Full width
+              maxWidth: "100%",
               height: "100%",
               objectFit: "cover",
               borderRadius: "20px",
@@ -212,11 +219,12 @@ const AboutUs = () => {
         {/* Vision Card */}
         <div
           style={{
-            width: "335px",
+            width: "100vw", // Full width
+            maxWidth: "100%",
             height: "210px",
             background: "#17B5A1",
             borderRadius: "20px",
-            padding: "28px 24px",
+            padding: "28px 20px",
             boxSizing: "border-box",
             display: "flex",
             flexDirection: "column",
@@ -247,7 +255,7 @@ const AboutUs = () => {
           </p>
         </div>
         {/* Team Members */}
-        <div className="text-center mb-6" style={{ marginTop: "28px" }}>
+        <div className="text-center mb-6" style={{ marginTop: "28px", padding: "0 20px" }}>
           <h2
             className="text-xl font-bold mb-6"
             style={{
@@ -286,7 +294,7 @@ const AboutUs = () => {
           </div>
         </div>
         {/* CTA */}
-        <div className="w-full flex flex-col items-center mb-8">
+        <div className="w-full flex flex-col items-center mb-8" style={{ padding: "0 20px" }}>
           <div
             className="font-bold text-[#7D3C98] mb-3"
             style={{ fontFamily: 'Figtree', fontSize: "26px" }}
@@ -300,7 +308,17 @@ const AboutUs = () => {
             Contact Us Today
           </button>
         </div>
-        <Footer />
+        {/* Footer - mobile view width larger */}
+        <div
+          className="w-full"
+          style={{
+            width: "100vw", // Full width
+            maxWidth: "100%",
+            margin: "0 auto",
+          }}
+        >
+          <Footer />
+        </div>
       </div>
       {/* DESKTOP VERSION */}
       <div className="hidden md:block">
@@ -430,7 +448,7 @@ const AboutUs = () => {
                 </div>
 
                 {/* Team Grid */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 md:gap-12">
                         {teamMembers.map((member) => (
                         <TeamMemberCard
                             key={member.id}

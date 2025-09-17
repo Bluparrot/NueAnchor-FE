@@ -5,7 +5,7 @@ import MyMap from '../components/UI/Map';
 
 const ContactInfo = ({
   className = '',
-  email = 'info@yourcompany.com',
+  email = 'info@neuanchor.com',
   phone = '+91-XXXXXXXXXX',
   office = 'Office',
   officeDescription = 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'

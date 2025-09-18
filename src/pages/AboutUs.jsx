@@ -7,12 +7,14 @@ import profile from '../assets/LandingPage/profile.svg';
 import Hero from '../assets/AboutUs/Hero.svg';
 import Story from '../assets/AboutUs/Story.svg';
 import mission from '../assets/AboutUs/mission.svg';
+import member2 from '../assets/team/member2.jpg';
+import member3 from '../assets/team/member3.jpg';
 
 const AboutUs = () => {
   const teamMembers = [
     { id: 1, name: "Ms. Shuchi Chopra", designation: "Chief Executive Officer", imageUrl: profile, isActive: false },
-    { id: 2, name: "Mr. Nitin Kalra", designation: "Chief Advisor- Marketing", imageUrl: profile, isActive: false },
-    { id: 3, name: "Mr. Ranveer Singh Saini", designation: "Chief Inspirational Officer", imageUrl: profile, isActive: false },
+    { id: 2, name: "Mr. Nitin Kalra", designation: "Chief Advisor- Marketing", imageUrl: member2, isActive: false },
+    { id: 3, name: "Mr. Ranveer Singh Saini", designation: "Chief Inspirational Officer", imageUrl: member3, isActive: false },
     { id: 4, name: "Mr. Ranvijay Singh Saini", designation: "Head of Internship Recruitment", imageUrl: profile, isActive: false },
     { id: 5, name: "Mr. Achal Jain", designation: "Chief Advisor- IT", imageUrl: profile, isActive: false }
   ];

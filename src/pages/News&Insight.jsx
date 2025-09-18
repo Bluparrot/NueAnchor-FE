@@ -60,7 +60,7 @@ const News = () => {
             className="text-[#1D69B5] font-bold text-2xl md:text-4xl mb-2 text-center"
             style={{ fontFamily: 'Libre Baskerville' }}
           >
-            News & Insights
+             Insights
           </h1>
           <p className="text-gray-700 text-base md:text-lg text-center">
             Get The Latest Buzz. Interviews, Articles, Stories.

@@ -1,7 +1,7 @@
 import React from 'react';
 import StoryCard from './UI/Card.jsx';
-import Story from '../assets/LandingPage/Story.svg'
-import Story2 from '../assets/LandingPage/Story2.svg'
+import Story from '../assets/LandingPage/story7.jpg'
+import Story2 from '../assets/LandingPage/story4.jpg'
 const Stories = () => {
   const storiesData = [
     {

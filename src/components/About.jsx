@@ -4,9 +4,9 @@ const About = () => {
   return (
     <section id="about" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-6 text-center">
-        <p className="text-black mb-8 font-Figtree  font-semibold text-2xl">About NeuAnchor</p>
+        <p className="text-black mb-8 font-Figtree  font-bold text-4xl">About NeuAnchor</p>
         <h2 className="text-3xl lg:text-4xl font-bold font-baskerville text-[#1D69B5] mb-8 ">
-          Anchoring Change. Navigating Growth.
+          Anchoring Change. Navigating Growth
         </h2>
         <div className="max-w-4xl mx-auto">
           <p className=" text-black text-[18px] mb-8 font-Figtree font-normal ">

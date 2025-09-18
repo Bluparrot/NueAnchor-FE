@@ -11,7 +11,7 @@ export const Hero = () => {
         lg:h-[90vh]
       `}
     >
-      <div className="mx-auto w-full max-w-7xl px-4 pt-6 pb-0  lg:pt-0">
+      <div className="mx-auto w-full  px-4 pt-6 pb-0  lg:pt-0">
         <div className="flex flex-col lg:grid lg:grid-cols-2 lg:gap-6 lg:h-[90vh] lg:items-center">
 
           {/* Left Content */}

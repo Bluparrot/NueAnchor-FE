@@ -1,6 +1,5 @@
 import React from 'react';
 import image from '../assets/LandingPage/Hero.png';    // Desktop image
-import image2 from '../assets/LandingPage/Hero2.png';  // Mobile image
 
 export const Hero = () => {
   return (

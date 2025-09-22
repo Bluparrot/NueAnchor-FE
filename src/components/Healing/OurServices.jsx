@@ -52,7 +52,7 @@ const OurServices = () => (
       {services.map((service, idx) => (
         <div
           key={idx}
-          className="bg-white rounded-[18px] shadow-sm px-7 py-8 flex flex-col justify-between h-full"
+          className="bg-white rounded-[18px] shadow-sm px-7 py-8 flex flex-col justify-between h-full transition-transform duration-300 ease-in-out hover:scale-105 active:scale-95"
         >
           <h3 className="font-bold text-lg text-gray-900 mb-4">{service.title}</h3>
           <ul className="mb-6 list-disc list-inside text-gray-700 text-[15px] space-y-1">

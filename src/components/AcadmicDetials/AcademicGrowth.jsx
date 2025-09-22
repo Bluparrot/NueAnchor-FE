@@ -17,6 +17,7 @@ const AcademicGrowth = () => (
         margin:0 0 16px 0;
         position:relative;
         display:inline-block;
+        transition:filter 0.4s, opacity 0.4s;
       }
       .acg-title a { color:inherit; text-decoration:none; }
       .acg-title::after{
@@ -36,9 +37,25 @@ const AcademicGrowth = () => (
         color:#222;
         max-width:700px;
         margin:0 auto;
+        transition:filter 0.4s, opacity 0.4s;
+        opacity:0;
+        transform:translateY(20px);
+        animation: fadeInUp 0.8s ease 0.6s forwards;
       }
-
-      /* Mobile adjustments to match Figma */
+      @keyframes fadeInUp {
+        to {
+          opacity:1;
+          transform:translateY(0);
+        }
+      }
+      .acg-title:hover {
+        filter: blur(1px) brightness(0.95);
+        opacity:0.7;
+      }
+      .acg-title:hover ~ .acg-desc {
+        filter: blur(1px) brightness(0.95);
+        opacity:0.7;
+      }
       @media (max-width:767px){
         .academic-growth{ padding:36px 16px 28px; }
         .acg-title{

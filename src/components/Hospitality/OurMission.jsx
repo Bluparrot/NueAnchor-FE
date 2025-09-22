@@ -23,7 +23,7 @@ const OurMission = () => (
           <img
             src={missionImg}
             alt="Hospitality Mission"
-            className="w-full h-[180px] object-cover"
+            className="w-full h-[180px] object-cover transition-transform duration-500 ease-in-out hover:scale-105 active:scale-95"
           />
         </div>
       </div>
@@ -65,7 +65,7 @@ const OurMission = () => (
           <img
             src={missionImg}
             alt="Hospitality Mission"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover transition-transform duration-500 ease-in-out hover:scale-105 active:scale-95"
             style={{
               borderRadius: "32px",
               width: "540px",

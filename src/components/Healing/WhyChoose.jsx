@@ -7,25 +7,32 @@ import wellnessImg from "../../assets/Healing/wellness.png";
 
 const features = [
   {
-    icon: <img src={careImg} alt="Personalized Care" className="w-8 h-8" />,
+    icon: careImg,
     label: "Personalized Care",
   },
   {
-    icon: <img src={rootImg} alt="Root Cause Analysis" className="w-8 h-8" />,
+    icon: rootImg,
     label: "Root Cause Analysis",
   },
   {
-    icon: <img src={preventiveImg} alt="Preventive Focus" className="w-8 h-8" />,
+    icon: preventiveImg,
     label: "Preventive Focus",
   },
   {
-    icon: <img src={integrativeImg} alt="Integrative Approach" className="w-8 h-8" />,
+    icon: integrativeImg,
     label: "Integrative Approach",
   },
   {
-    icon: <img src={wellnessImg} alt="Long-term Wellness" className="w-8 h-8" />,
+    icon: wellnessImg,
     label: "Long-term Wellness",
   },
+];
+
+// Duplicate features for infinite scroll illusion
+const scrollingFeatures = [
+  ...features,
+  ...features,
+  ...features, // Add more if you want a longer scroll
 ];
 
 const WhyChoose = () => (
@@ -33,18 +40,41 @@ const WhyChoose = () => (
     <h2 className="text-center text-[28px] md:text-[32px] font-baskerville font-bold text-[#189C3E] mb-10">
       Why Choose Functional Medicine?
     </h2>
-    <div className="flex flex-wrap justify-center gap-8">
-      {features.map((f, idx) => (
-        <div key={idx} className="flex flex-col items-center w-[120px]">
-          <div className="bg-[#189C3E] rounded-full flex items-center justify-center w-[64px] h-[64px] mb-3">
-            {f.icon}
+    <div className="overflow-hidden w-full">
+      <div
+        className="flex gap-12 animate-scroll-x"
+        style={{
+          minWidth: "100%",
+          width: "max-content",
+        }}
+      >
+        {scrollingFeatures.map((f, idx) => (
+          <div key={idx} className="flex flex-col items-center w-[120px]">
+            <span className="bg-[#189C3E] rounded-full flex items-center justify-center w-[64px] h-[64px] mb-3 transition-transform duration-500 ease-in-out hover:scale-110 active:scale-95 overflow-visible">
+              <img
+                src={f.icon}
+                alt={f.label}
+                className="w-8 h-8 transition-transform duration-500 ease-in-out hover:scale-125 active:scale-95"
+              />
+            </span>
+            <div className="text-center text-[15px] font-medium text-gray-900 leading-tight">
+              {f.label}
+            </div>
           </div>
-          <div className="text-center text-[15px] font-medium text-gray-900 leading-tight">
-            {f.label}
-          </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
+    <style>
+      {`
+        @keyframes scroll-x {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-33.333%); }
+        }
+        .animate-scroll-x {
+          animation: scroll-x 18s linear infinite;
+        }
+      `}
+    </style>
   </section>
 );
 

@@ -32,7 +32,7 @@ const Optimal = () => {
 
         <a
           href="#visit"
-          className="inline-flex items-center justify-center px-6 py-3 rounded-md bg-white text-[#189C3E] font-semibold shadow-sm hover:bg-gray-100 transition"
+          className="inline-flex items-center justify-center px-6 py-3 rounded-md bg-white text-[#189C3E] font-semibold shadow-sm transition-all duration-300 hover:bg-gray-100 hover:scale-105 active:scale-95"
         >
           Visit Site Now
         </a>

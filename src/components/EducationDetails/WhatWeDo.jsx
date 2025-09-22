@@ -103,12 +103,10 @@ const WhatWeDo = () => (
       }
       .wwd-card-row {
         display: flex;
-        gap: 20px;
+        gap: 32px; /* Increased gap for more space between cards */
         justify-content: center;
         flex-wrap: nowrap;
-        overflow-x: auto;
-        padding-bottom: 8px;
-        scrollbar-width: thin;
+        /* Removed overflow-x and scrollbar styles */
       }
       .wwd-card-frame {
         width: 310px;
@@ -138,6 +136,12 @@ const WhatWeDo = () => (
         object-fit: cover;
         border-radius: 12px;
         margin-bottom: 12px;
+        transition: transform 0.35s cubic-bezier(.4,0,.2,1);
+        will-change: transform;
+      }
+      .wwd-card-frame:hover .wwd-card-img,
+      .wwd-card-frame:active .wwd-card-img {
+        transform: scale(1.07);
       }
       .wwd-card-desc {
         font-family: 'Poppins', sans-serif;
@@ -185,9 +189,8 @@ const WhatWeDo = () => (
         .wwd-card-row {
           display: flex;
           flex-direction: column;
-          gap: 16px;
+          gap: 24px; /* Increased gap for mobile */
           width: 100%;
-          /* No overflow-x, no flex-wrap */
           overflow-x: unset !important;
           flex-wrap: unset !important;
         }
@@ -216,6 +219,11 @@ const WhatWeDo = () => (
           height: 176px;
           border-radius: 12px;
           margin-bottom: 12px;
+          transition: transform 0.35s cubic-bezier(.4,0,.2,1);
+        }
+        .wwd-card-frame:hover .wwd-card-img,
+        .wwd-card-frame:active .wwd-card-img {
+          transform: scale(1.04);
         }
         .wwd-card-title {
           font-size: 18px;

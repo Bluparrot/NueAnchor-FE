@@ -51,27 +51,36 @@ export default function TransformHero() {
           max-width: 600px;
         }
         .transform-hero-btn {
-          width: 244px;
-          height: 66px;
+          width: 160px;
+          height: 60px;
           background: #fff;
           color: #1D69B5;
           font-family: "Inter", sans-serif;
-          font-size: 1.15rem;
+          font-size: 1rem;
           font-weight: 600;
-          border-radius: 12px;
+          border-radius: 8px;
           border: none;
-          padding-right: 22px;
-          padding-left: 22px;
+          padding: 0 18px;
           display: flex;
           align-items: center;
           justify-content: center;
-          gap: 9px;
+          gap: 7px;
           box-shadow: 0 2px 8px rgba(0,0,0,0.08);
           cursor: pointer;
-          transition: background 0.2s;
+          transition: 
+            background 0.2s,
+            transform 0.35s cubic-bezier(.68,-0.55,.27,1.55),
+            box-shadow 0.2s;
           text-decoration: none;
         }
-        .transform-hero-btn:hover { background: #eaf4ff; }
+        .transform-hero-btn:hover {
+          background: #eaf4ff;
+          transform: scale(1.08);
+          box-shadow: 0 4px 16px rgba(29,105,181,0.12);
+        }
+        .transform-hero-btn:active {
+          transform: scale(0.96);
+        }
 
         @media (max-width: 1500px) {
           .transform-hero-bg {
@@ -100,10 +109,10 @@ export default function TransformHero() {
             margin-bottom: 18px;
           }
           .transform-hero-btn {
-            width: 200px;         /* pill width in mock */
-            height: 50px;
-            font-size: 1rem;
-            border-radius: 12px;
+            width: 120px;
+            height: 36px;
+            font-size: 0.95rem;
+            border-radius: 8px;
           }
         }
       `}</style>

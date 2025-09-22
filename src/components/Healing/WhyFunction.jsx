@@ -21,14 +21,14 @@ const WhyFunction = () => (
       "
     >
       {/* Left green card */}
-      <div className="bg-[#189C3E] text-white rounded-[16px] lg:w-[356px] h-full px-6 lg:px-8 py-8 lg:py-10 flex flex-col justify-center">
-        <h2 className="font-baskerville font-bold text-[24px] leading-snug mb-3">
+      <div className="bg-[#189C3E] text-white rounded-[16px] lg:w-[356px] h-full px-6 lg:px-8 py-8 lg:py-10 flex flex-col justify-center transition-transform duration-300 ease-in-out hover:scale-105 active:scale-95">
+        <h2 className="font-baskerville font-bold text-[24px] leading-snug mb-3 transition-transform duration-300 ease-in-out hover:scale-105">
           Why Functional Medicine Matters
         </h2>
-        <h3 className="font-semibold text-[15px] mb-2">
+        <h3 className="font-semibold text-[15px] mb-2 transition-transform duration-300 ease-in-out hover:scale-105">
           The Healthcare Revolution India Needs
         </h3>
-        <p className="text-[14px] leading-relaxed">
+        <p className="text-[14px] leading-relaxed transition-transform duration-300 ease-in-out hover:scale-105">
           In a world where chronic diseases are on the rise and traditional treatments often fall short, functional medicine offers hope. By focusing on prevention and root-cause analysis, we’re not just treating illness — we’re creating wellness.
         </p>
       </div>
@@ -36,11 +36,11 @@ const WhyFunction = () => (
       {/* Center points */}
       <div className="flex-1 h-full flex flex-col justify-center gap-5 lg:gap-6">
         {points.map((pt, idx) => (
-          <div key={idx} className="flex items-center gap-4">
-            <span className="w-[44px] h-[44px] rounded-full bg-[#E6F4EA] flex items-center justify-center font-bold text-[#189C3E] text-[20px]">
+          <div key={idx} className="flex items-center gap-4 group transition-transform duration-300 ease-in-out hover:scale-105">
+            <span className="w-[44px] h-[44px] rounded-full bg-[#E6F4EA] flex items-center justify-center font-bold text-[#189C3E] text-[20px] transition-transform duration-300 ease-in-out group-hover:scale-110">
               {idx + 1}
             </span>
-            <span className="text-[#111827] text-[16px] font-medium">
+            <span className="text-[#111827] text-[16px] font-medium transition-transform duration-300 ease-in-out group-hover:scale-105">
               {pt}
             </span>
           </div>
@@ -48,20 +48,20 @@ const WhyFunction = () => (
       </div>
 
       {/* Right image (desktop) */}
-      <div className="hidden lg:block rounded-[16px] overflow-hidden lg:w-[356px] lg:h-[356px]">
+      <div className="hidden lg:block rounded-[16px] overflow-hidden lg:w-[356px] lg:h-[356px] transition-transform duration-300 ease-in-out hover:scale-105 active:scale-95">
         <img
           src={functionImg}
           alt="Functional medicine"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover transition-transform duration-300 ease-in-out hover:scale-110"
         />
       </div>
 
       {/* Image below content (mobile only) */}
-      <div className="lg:hidden mt-6 rounded-[16px] overflow-hidden w-full" style={{ aspectRatio: "328 / 280" }}>
+      <div className="lg:hidden mt-6 rounded-[16px] overflow-hidden w-full transition-transform duration-300 ease-in-out hover:scale-105 active:scale-95" style={{ aspectRatio: "328 / 280" }}>
         <img
           src={functionImg}
           alt="Functional medicine"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover transition-transform duration-300 ease-in-out hover:scale-110"
         />
       </div>
     </div>

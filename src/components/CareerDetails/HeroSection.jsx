@@ -87,9 +87,23 @@ const HeroSection = () => {
         <style>
           {`
             @media (max-width: 767px) {
+              a[aria-label="Visit Site"] {
+                transition: transform 0.2s, background 0.2s;
+              }
               a[aria-label="Visit Site"]:hover {
                 background: #155a96 !important;
                 color: #fff !important;
+                transform: scale(1.05);
+              }
+            }
+            @media (min-width: 768px) {
+              .hero-visit-btn {
+                transition: transform 0.2s, background 0.2s, color 0.2s;
+              }
+              .hero-visit-btn:hover {
+                background: #155a96;
+                color: #fff;
+                transform: scale(1.05);
               }
             }
           `}
@@ -122,7 +136,7 @@ const HeroSection = () => {
               <p className="text-lg text-black font-Figtree mb-8 leading-relaxed">
                 From subject selection to building global-ready profiles, NeuAnchor Careers helps students and families make confident, informed choices.
               </p>
-              <Button variant="primary" size="lg">
+              <Button variant="primary" size="lg" className="hero-visit-btn">
                 Visit Site
               </Button>
             </div>

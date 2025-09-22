@@ -4,24 +4,47 @@ import AboutImg from "../../assets/EducationDetailspage/AboutNeuAnchor.png";
 const AboutSection = () => {
   return (
     <section className="flex flex-col lg:flex-row items-center justify-center gap-10 px-6 lg:px-24 py-16 bg-white">
+      <style>
+        {`
+          .about-img-frame {
+            transition: box-shadow 0.3s cubic-bezier(.4,0,.2,1);
+          }
+          .about-img-frame:hover .about-img {
+            transform: scale(1.06);
+            box-shadow: 0 8px 32px rgba(37,99,235,0.12);
+          }
+          .about-img {
+            transition: transform 0.35s cubic-bezier(.4,0,.2,1), box-shadow 0.3s cubic-bezier(.4,0,.2,1);
+            will-change: transform;
+          }
+          .about-text-block {
+            transition: color 0.3s cubic-bezier(.4,0,.2,1), text-shadow 0.3s cubic-bezier(.4,0,.2,1);
+          }
+          .about-text-block:hover h2,
+          .about-text-block:hover p {
+            color: #25643b;
+            text-shadow: 0 2px 12px rgba(37,99,235,0.10);
+          }
+        `}
+      </style>
       {/* Mobile heading above image */}
       <h2 className="block lg:hidden text-[26px] leading-[34px] font-bold text-[#3A7F4B] mb-4 font-baskerville text-center">
         About NeuAnchor Education
       </h2>
 
-      {/* Image (no Figma link) */}
+      {/* Image (with zoom effect) */}
       <div
-        className="relative block w-full max-w-[592px] overflow-hidden rounded-[20px] lg:rounded-[32px] shadow-sm"
+        className="about-img-frame relative block w-full max-w-[592px] overflow-hidden rounded-[20px] lg:rounded-[32px] shadow-sm"
         style={{ aspectRatio: "592 / 388" }}
         aria-label="NeuAnchor About section image"
       >
         <img
           src={AboutImg}
           alt="NeuAnchor Education campus"
-          className="w-full h-full object-cover"
+          className="about-img w-full h-full object-cover"
         />
 
-        {/* Stat Cards: visible on desktop/tablet only (unchanged there) */}
+        {/* Stat Cards: visible on desktop/tablet only */}
         <div className="hidden md:flex absolute left-3 bottom-3 md:left-6 md:bottom-6 gap-2 md:gap-4">
           <div className="bg-[#FFE7B2] rounded-[12px] md:rounded-[16px] px-3 py-2 md:px-5 md:py-3 shadow border border-[#F5D9A6]">
             <div className="font-bold text-lg md:text-xl text-[#1D69B5] leading-none">
@@ -42,8 +65,8 @@ const AboutSection = () => {
         </div>
       </div>
 
-      {/* Text Content */}
-      <div className="max-w-[520px] w-full">
+      {/* Text Content (with effect) */}
+      <div className="about-text-block max-w-[520px] w-full">
         {/* Desktop/tablet heading (hidden on mobile) */}
         <h2 className="hidden lg:block text-[26px] leading-[34px] lg:text-3xl font-bold text-[#3A7F4B] mb-4 font-baskerville text-left">
           About NeuAnchor Education

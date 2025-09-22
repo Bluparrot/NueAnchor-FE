@@ -40,7 +40,7 @@ const Transform = () => {
 
         <a
           href="#visit"
-          className="inline-flex items-center justify-center bg-white text-[#1E4FBF] font-semibold rounded-[10px] shadow-sm transition"
+          className="inline-flex items-center justify-center bg-white text-[#1E4FBF] font-semibold rounded-[10px] shadow-sm transition-all duration-300 hover:bg-[#EAF2FF] hover:scale-105 active:scale-95"
           style={{ height: "48px", padding: "0 28px", fontSize: "16px" }}
         >
           Visit Site Now

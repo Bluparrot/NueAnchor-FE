@@ -66,7 +66,7 @@ const JoinUs = () => (
       </p>
       <a
         href="#visit"
-        className="inline-flex items-center justify-center font-semibold shadow transition"
+        className="inline-flex items-center justify-center font-semibold shadow transition-all duration-300 hover:scale-105 hover:bg-[#e6c200]"
         style={{
           background: "#FFD600",
           color: "#222",
@@ -100,7 +100,7 @@ const JoinUs = () => (
       </p>
       <a
         href="#visit"
-        className="inline-flex items-center justify-center font-semibold shadow transition bg-[#FFD600] text-[#222] rounded-[8px] text-[15px] w-[160px] h-[40px]"
+        className="inline-flex items-center justify-center font-semibold shadow transition-all duration-300 bg-[#FFD600] text-[#222] rounded-[8px] text-[15px] w-[160px] h-[40px] hover:scale-105 hover:bg-[#e6c200]"
       >
         Visit Site Now
       </a>

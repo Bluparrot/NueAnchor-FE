@@ -31,7 +31,7 @@ const HowWeHelp = () => (
         <img
           src={howWeHelpImg}
           alt="Group support"
-          className="w-full h-auto rounded-2xl md:rounded-[32px] object-cover shadow"
+          className="w-full h-auto rounded-2xl md:rounded-[32px] object-cover shadow transition-transform duration-500 ease-in-out hover:scale-105 active:scale-95"
           style={{ aspectRatio: '16 / 10' }}
         />
       </div>
@@ -45,7 +45,10 @@ const HowWeHelp = () => (
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {CARD_DATA.map((card, idx) => (
-            <div key={idx} className="bg-white rounded-xl shadow p-4 md:p-5 flex flex-col items-start">
+            <div
+              key={idx}
+              className="bg-white rounded-xl shadow p-4 md:p-5 flex flex-col items-start transition-transform transition-shadow duration-300 ease-in-out hover:scale-105 hover:shadow-lg"
+            >
               <div className="mb-3">{card.icon}</div>
               <h4 className="font-semibold text-gray-900 mb-1">{card.title}</h4>
               <p className="text-sm text-gray-600">{card.desc}</p>

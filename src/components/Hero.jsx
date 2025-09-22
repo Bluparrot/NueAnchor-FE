@@ -1,7 +1,38 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import image from '../assets/LandingPage/Hero.png';    // Desktop image
 
+const headlineParts = [
+  { text: "Empowering Growth,", className: "" },
+  { text: "Wellness,", className: "text-[#1D69B5]" },
+  { text: "and Community", className: "text-[#1D69B5]" }
+];
+
 export const Hero = () => {
+  const [currentPart, setCurrentPart] = useState(0);
+  const [typedText, setTypedText] = useState(["", "", ""]);
+
+  useEffect(() => {
+    if (currentPart < headlineParts.length) {
+      let i = 0;
+      const typeChar = () => {
+        if (i <= headlineParts[currentPart].text.length) {
+          setTypedText(prev => {
+            const updated = [...prev];
+            updated[currentPart] = headlineParts[currentPart].text.slice(0, i);
+            return updated;
+          });
+          i++;
+          setTimeout(typeChar, 40); // Typing speed
+        } else {
+          setTimeout(() => setCurrentPart(currentPart + 1), 400); // Delay before next part
+        }
+      };
+      typeChar();
+    }
+    // Add this else block to stop the effect
+    // No need to do anything when all parts are typed
+  }, [currentPart]);
+
   return (
 		<section
 			className={`
@@ -20,12 +51,18 @@ export const Hero = () => {
 							</div>
 							<div className="space-y-4">
 								<h1 className="font-baskerville font-bold text-[48px] leading-[1.25] md:text-[30px] md:leading-snug lg:text-[40px] lg:leading-tight text-gray-900">
-									<span className="block">
-										Empowering Growth,
-									</span>
-									<span className="text-[#1D69B5]">
-										Wellness, and Community
-									</span>
+									{headlineParts.map((part, idx) => (
+										<span
+											key={idx}
+											className={`block ${part.className}`}
+											style={{ minHeight: "1em", whiteSpace: "pre" }}
+										>
+											{typedText[idx]}
+											{(currentPart === idx && currentPart < headlineParts.length) && (
+												<span className="animate-pulse">|</span>
+											)}
+										</span>
+									))}
 								</h1>
 								<p className="font-Figtree font-medium text-[14px] leading-[1.55] md:text-[15px] lg:text-[17px] lg:leading-relaxed text-gray-600 max-w-[560px]">
 									<span className="block lg:hidden">

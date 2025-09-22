@@ -2,14 +2,14 @@ import React from "react";
 import centerImg from "../../assets/Healing/approach-center.png"; // replace with your exported Figma image
 
 const Card = ({ icon, title, desc }) => (
-  <div className="rounded-[14px] bg-[#F2F7F0] p-5 md:p-6 shadow-sm">
-    <div className="inline-flex items-center justify-center w-10 h-10 rounded-[10px] bg-[#189C3E] mb-3">
+  <div className="rounded-[14px] bg-[#F2F7F0] p-5 md:p-6 shadow-sm transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-[0_8px_32px_0_rgba(24,156,62,0.15)] active:scale-95">
+    <div className="inline-flex items-center justify-center w-10 h-10 rounded-[10px] bg-[#189C3E] mb-3 transition-transform duration-300 ease-in-out hover:scale-110">
       {icon}
     </div>
-    <h3 className="text-[16px] md:text-[18px] font-semibold text-[#0F172A] mb-2">
+    <h3 className="text-[16px] md:text-[18px] font-semibold text-[#0F172A] mb-2 transition-transform duration-300 ease-in-out hover:scale-105">
       {title}
     </h3>
-    <p className="text-[13px] md:text-[14px] leading-[1.5] text-[#4B5563]">
+    <p className="text-[13px] md:text-[14px] leading-[1.5] text-[#4B5563] transition-transform duration-300 ease-in-out hover:scale-105">
       {desc}
     </p>
   </div>
@@ -52,20 +52,21 @@ const OurApproach = () => {
             <div
               className="
                 w-full
-                rounded-[16px]               /* border-radius: 16px */
+                rounded-[16px]
                 overflow-hidden
-                aspect-[384/477]             /* keep ratio on mobile */
+                aspect-[384/477]
                 lg:aspect-auto
-                lg:w-[384px]                 /* width: 384px (desktop) */
-                lg:h-[477px]                 /* height: 477px (desktop) */
+                lg:w-[384px]
+                lg:h-[477px]
+                transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-[0_8px_32px_0_rgba(24,156,62,0.18)] active:scale-95
               "
-              style={{ opacity: 1 }}         /* opacity: 1 */
+              style={{ opacity: 1 }}
             >
               <img
                 src={centerImg}
                 alt="Healthy lifestyle ingredients"
-                className="w-full h-full object-cover"
-                style={{ transform: "rotate(0deg)" }}  /* angle: 0deg */
+                className="w-full h-full object-cover transition-transform duration-300 ease-in-out hover:scale-110"
+                style={{ transform: "rotate(0deg)" }}
               />
             </div>
           </div>

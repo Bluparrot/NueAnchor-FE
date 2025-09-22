@@ -14,12 +14,12 @@ const About = () => {
           About us
         </h3>
 
-        <div className="overflow-hidden rounded-[16px] shadow-md mb-6">
+        <div className="overflow-hidden rounded-[16px] shadow-md mb-6 about-img-mobile">
           <img
             src={aboutPhoto}
             alt="About Indiana G"
-            className="w-full h-auto object-cover block"
-            style={{ aspectRatio: "328 / 244" }}
+            className="w-full h-auto object-cover block about-img"
+            style={{ aspectRatio: "328 / 244", transition: "transform 0.3s cubic-bezier(.4,0,.2,1)" }}
           />
         </div>
 
@@ -60,11 +60,12 @@ const About = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center md:min-h-[512px]">
             {/* IMAGE */}
             <div className="relative flex justify-center md:justify-end">
-              <div className="overflow-hidden rounded-2xl shadow-lg h-64 md:h-[512px] w-full max-w-[480px]">
+              <div className="overflow-hidden rounded-2xl shadow-lg h-64 md:h-[512px] w-full max-w-[480px] about-img-desktop">
                 <img
                   src={aboutPhoto}
                   alt="Person unwrapping gift - Indiana G about"
-                  className="w-full h-full object-cover block"
+                  className="w-full h-full object-cover block about-img"
+                  style={{ transition: "transform 0.3s cubic-bezier(.4,0,.2,1)" }}
                 />
               </div>
             </div>
@@ -93,6 +94,19 @@ const About = () => {
           </div>
         </div>
       </div>
+
+      {/* Image zoom in/out effect */}
+      <style>{`
+        .about-img-desktop:hover .about-img,
+        .about-img-desktop:focus .about-img,
+        .about-img-mobile:hover .about-img,
+        .about-img-mobile:focus .about-img {
+          transform: scale(1.06);
+        }
+        .about-img {
+          transition: transform 0.3s cubic-bezier(.4,0,.2,1);
+        }
+      `}</style>
     </section>
   );
 };

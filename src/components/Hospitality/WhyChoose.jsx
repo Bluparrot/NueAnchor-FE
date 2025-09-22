@@ -23,40 +23,32 @@ const features = [
   },
 ];
 
+// Duplicate features for infinite scroll illusion
+const scrollingFeatures = [...features, ...features];
+
 const WhyChoose = () => (
   <section className="w-full bg-white py-8 px-4 md:py-30 md:px-30">
-    {/* Mobile layout */}
-    <div className="block md:hidden">
-      <div className="max-w-[340px] mx-auto flex flex-col items-center">
-        <h2 className="font-Poppins font-bold text-[#FFD600] text-[22px] text-center mb-8 leading-[1.2]">
-          Why Choose
-          <br />
-          NeuAnchor
-          <br />
-          Hospitality?
-        </h2>
-        {features.map((f, idx) => (
-          <div key={idx} className="flex flex-col items-center mb-8 last:mb-0">
-            <span className="inline-flex items-center justify-center w-[80px] h-[80px] rounded-full bg-[#FFF6D1] mb-4">
-              <img src={f.icon} alt="" className="w-8 h-8" />
-            </span>
-            <div className="text-center text-[15px] font-semibold text-[#222] leading-[1.3] break-words max-w-[260px]">
-              {f.label}
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-    {/* Desktop/Tablet layout (unchanged) */}
-    <div className="hidden md:block">
-      <h2 className="text-center font-baskerville font-bold text-[#FFD600] text-[28px] mb-12">
-        Why Choose NeuAnchor Hospitality?
-      </h2>
-      <div className="flex flex-row justify-center items-start gap-[80px]">
-        {features.map((f, idx) => (
+    <h2 className="text-center font-baskerville font-bold text-[#FFD600] text-[28px] mb-12">
+      Why Choose NeuAnchor Hospitality?
+    </h2>
+    {/* Infinite horizontal scroll */}
+    <div className="overflow-hidden w-full">
+      <div
+        className="flex gap-[80px] animate-scroll-x"
+        style={{
+          minWidth: "100%",
+          width: "max-content",
+        }}
+      >
+        {scrollingFeatures.map((f, idx) => (
           <div key={idx} className="flex flex-col items-center w-[220px]">
-            <span className="inline-flex items-center justify-center w-[72px] h-[72px] rounded-full bg-[#FFF6D1]">
-              <img src={f.icon} alt="" className="w-8 h-8" />
+            <span className="inline-flex items-center justify-center w-[72px] h-[72px] rounded-full bg-[#FFF6D1] transition-transform duration-500 ease-in-out hover:scale-110 active:scale-95 overflow-visible p-3">
+              <img
+                src={f.icon}
+                alt=""
+                className="w-8 h-8 transition-transform duration-500 ease-in-out hover:scale-125 active:scale-95"
+                style={{ marginTop: "3px" }}
+              />
             </span>
             <div className="text-center text-[16px] font-semibold text-[#222] mt-5">
               {f.label}
@@ -65,6 +57,17 @@ const WhyChoose = () => (
         ))}
       </div>
     </div>
+    <style>
+      {`
+        @keyframes scroll-x {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .animate-scroll-x {
+          animation: scroll-x 18s linear infinite;
+        }
+      `}
+    </style>
   </section>
 );
 

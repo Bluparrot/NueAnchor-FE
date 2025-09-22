@@ -30,38 +30,54 @@ const ProgramsSection = () => {
       <style>{`
         @media (max-width: 767px) {
           .programs-section {
-            background-color: #FEE368;  /* yellow background on mobile */
+            background-color: #FEE368;
           }
           .programs-mobile {
-            max-width: 375px;        /* width: 375 */
-            min-height: 1480px;      /* height: 1480 */
+            max-width: 375px;
+            min-height: 1480px;
             margin: 0 auto;
             display: flex;
             flex-direction: column;
-            gap: 10px;               /* gap: 10px */
-            opacity: 1;              /* opacity: 1 */
+            gap: 10px;
+            opacity: 1;
           }
           .programs-mobile .cards-grid {
-            gap: 10px;               /* tighter spacing on mobile */
+            gap: 10px;
           }
           .programs-mobile .card-wrap {
-            max-width: 343px;        /* keep cards neatly inside 375px */
-            margin: 0 auto;          /* center card */
+            max-width: 343px;
+            margin: 0 auto;
             width: 100%;
           }
           .programs-mobile .card-wrap img {
-            width: 100%;             /* make card images responsive */
+            width: 100%;
             height: 100;
             object-fit: cover;
             display: block;
             border-radius: 16px;
           }
           .programs-mobile .visit-btn {
-            width: 240px;            /* larger mobile button */
+            width: 240px;
             height: 50px;
             font-size: 16px;
             border-radius: 12px;
+            transition: transform 0.2s, background 0.2s;
           }
+          .programs-mobile .visit-btn:hover {
+            transform: scale(1.05);
+            background: #1D69B5;
+          }
+        }
+        /* Desktop button hover */
+        .programs-section .visit-btn,
+        .programs-section .Button {
+          transition: transform 0.2s, background 0.2s;
+        }
+        .programs-section .visit-btn:hover,
+        .programs-section .Button:hover {
+          transform: scale(1.05);
+          background: #1D69B5;
+          color: #fff;
         }
       `}</style>
 

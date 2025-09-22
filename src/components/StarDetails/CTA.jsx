@@ -124,31 +124,31 @@ const CTA = () => (
       <div className="flex flex-col items-center gap-3 md:hidden">
         <a
           href="#visit"
-          className="w-[240px] mx-auto px-4 py-2.5 rounded-lg text-sm font-semibold bg-black text-[#FFD600] hover:bg-[#111] transition shadow-sm"
+          className="w-[240px] mx-auto px-4 py-2.5 rounded-lg text-sm font-semibold bg-black text-[#FFD600] hover:bg-[#FFD600] hover:text-black transition shadow-sm transform hover:scale-105 active:scale-95 duration-300"
           aria-label="Visit Site Now"
         >
           Visit Site Now
         </a>
         <a
           href="#contact"
-          className="w-[240px] mx-auto px-4 py-2.5 rounded-lg text-sm font-semibold bg-white text-[#111] border border-gray-300 hover:bg-gray-50 transition"
+          className="w-[240px] mx-auto px-4 py-2.5 rounded-lg text-sm font-semibold bg-white text-[#111] border border-gray-300 hover:bg-[#144C84] hover:text-white transition transform hover:scale-105 active:scale-95 duration-300"
           aria-label="Connect with Us"
         >
           Connect with Us
         </a>
       </div>
 
-      {/* Desktop buttons (unchanged) */}
+      {/* Desktop buttons */}
       <div className="hidden md:flex gap-4 justify-center">
         <a
           href="#contact"
-          className="px-8 py-3 border border-gray-400 rounded-md font-semibold text-[#222] bg-white hover:bg-gray-50 transition"
+          className="px-8 py-3 border border-gray-400 rounded-md font-semibold text-[#222] bg-white hover:bg-[#144C84] hover:text-white transition transform hover:scale-105 active:scale-95 duration-300"
         >
           Contact with us
         </a>
         <a
           href="#visit"
-          className="px-8 py-3 rounded-md font-semibold text-[#144C84] transition"
+          className="px-8 py-3 rounded-md font-semibold text-[#144C84] transition transform hover:scale-105 active:scale-95 duration-300 hover:bg-[#FFD600] hover:text-black"
           style={{ backgroundColor: "#FFD600" }}
         >
           Visit Site

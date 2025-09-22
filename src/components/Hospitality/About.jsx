@@ -14,7 +14,7 @@ const About = () => (
           <img
             src={aboutImg}
             alt="NeuAnchor Hospitality"
-            className="w-full h-[220px] object-cover"
+            className="w-full h-[220px] object-cover transition-transform duration-500 ease-in-out hover:scale-105 active:scale-95"
           />
         </div>
 
@@ -44,7 +44,7 @@ const About = () => (
           <img
             src={aboutImg}
             alt="NeuAnchor Hospitality"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover transition-transform duration-500 ease-in-out hover:scale-105 active:scale-95"
             style={{
               borderRadius: "32px",
               width: "592px",

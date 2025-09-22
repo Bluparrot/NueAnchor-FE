@@ -68,7 +68,7 @@ const Stories = () => (
         <img
           src={ranveerAward}
           alt="Ranveer Singh Saini receiving award"
-          className="w-full object-cover block"
+          className="w-full object-cover block transition-transform duration-500 ease-in-out hover:scale-105 active:scale-105"
           style={{ height: '320px' }}
           loading="lazy"
           decoding="async"
@@ -136,7 +136,7 @@ const Stories = () => (
               opacity: 1,
               transform: 'rotate(0deg)',
             }}
-            className="shadow-lg md:max-w-[592px] md:h-[500px] max-w-[543px] h-[440px]"
+            className="shadow-lg md:max-w-[592px] md:h-[500px] max-w-[543px] h-[440px] transition-transform duration-500 ease-in-out hover:scale-105 active:scale-105"
           />
         </div>
       </div>

@@ -31,6 +31,14 @@ export default function HowItWorks() {
           box-shadow: 0 4px 24px rgba(0,0,0,0.08);
           gap: 18px;
           margin-left: 48px;
+          transition: transform 0.45s cubic-bezier(.68,-0.55,.27,1.55);
+          will-change: transform;
+        }
+        .hiw-left:hover {
+          transform: scale(1.04);
+        }
+        .hiw-left:active {
+          transform: scale(0.97);
         }
         .hiw-leftTitle {
           font-family: "Libre Baskerville", serif;
@@ -38,6 +46,17 @@ export default function HowItWorks() {
           font-weight: 700;
           line-height: 1.25;
           margin: 0;
+          transition: 
+            transform 0.35s cubic-bezier(.68,-0.55,.27,1.55),
+            text-shadow 0.3s;
+          will-change: transform;
+        }
+        .hiw-leftTitle:hover {
+          transform: scale(1.04);
+          text-shadow: 0 2px 12px rgba(29,105,181,0.12);
+        }
+        .hiw-leftTitle:active {
+          transform: scale(0.97);
         }
         .hiw-leftDesc {
           font-size: 1.05rem;
@@ -45,6 +64,17 @@ export default function HowItWorks() {
           margin: 0;
           line-height: 1.5;
           color: #F3F7FC;
+          transition: 
+            transform 0.35s cubic-bezier(.68,-0.55,.27,1.55),
+            text-shadow 0.3s;
+          will-change: transform;
+        }
+        .hiw-leftDesc:hover {
+          transform: scale(1.03);
+          text-shadow: 0 2px 8px rgba(29,105,181,0.10);
+        }
+        .hiw-leftDesc:active {
+          transform: scale(0.97);
         }
         .hiw-ctaBtn {
           background: #fff;
@@ -56,11 +86,21 @@ export default function HowItWorks() {
           font-size: 1rem;
           cursor: pointer;
           box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-          transition: background 0.2s;
+          transition: 
+            background 0.2s,
+            transform 0.35s cubic-bezier(.68,-0.55,.27,1.55),
+            box-shadow 0.2s;
           margin-top: 6px;
           align-self: flex-start;
         }
-        .hiw-ctaBtn:hover { background: #eaf4ff; }
+        .hiw-ctaBtn:hover {
+          background: #eaf4ff;
+          transform: scale(1.08);
+          box-shadow: 0 4px 16px rgba(29,105,181,0.12);
+        }
+        .hiw-ctaBtn:active {
+          transform: scale(0.96);
+        }
 
         .hiw-right {
           flex: 1;
@@ -87,12 +127,39 @@ export default function HowItWorks() {
           width: 36px; height: 36px; border-radius: 50%;
           font-weight: 700; font-size: 1.1rem;
           display: flex; align-items: center; justify-content: center;
+          transition: transform 0.35s cubic-bezier(.68,-0.55,.27,1.55);
+          will-change: transform;
+        }
+        .hiw-stepNum:hover {
+          transform: scale(1.18);
+        }
+        .hiw-stepNum:active {
+          transform: scale(0.92);
         }
         .hiw-stepNum.step1 { background: #ECECFF; color: #6C63FF; }
         .hiw-stepNum.step2 { background: #FFEDE8; color: #FF6C63; }
         .hiw-stepNum.step3 { background: #FFEDE8; color: #FF6C63; }
         .hiw-stepNum.step4 { background: #E9F8EE; color: #16A34A; }
-        .hiw-stepText { font-size: 1.08rem; color: #222; font-weight: 500; line-height: 1.5; }
+        .hiw-stepText {
+          font-size: 1.08rem;
+          color: #222;
+          font-weight: 500;
+          line-height: 1.5;
+          transition: 
+            transform 0.35s cubic-bezier(.68,-0.55,.27,1.55),
+            background 0.2s,
+            box-shadow 0.2s;
+          padding: 2px 0;
+          border-radius: 6px;
+        }
+        .hiw-step:hover .hiw-stepText {
+          background: #f6faff;
+          transform: scale(1.06);
+          box-shadow: 0 2px 8px rgba(29,105,181,0.08);
+        }
+        .hiw-step:active .hiw-stepText {
+          transform: scale(0.97);
+        }
 
         /* Tablet collapse */
         @media (max-width: 900px) {

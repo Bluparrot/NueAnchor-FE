@@ -16,98 +16,71 @@ const categories = [
   { title: "Gourmet Treats", img: cat6 },
 ];
 
-const Categories = () => {
-  return (
-    <section className="py-12 md:py-16 bg-white">
-      {/* MOBILE — match Figma exactly; desktop untouched */}
-      <div className="md:hidden max-w-[430px] mx-auto px-5">
-        <h3
-          className="text-center text-[24px] font-bold leading-[1.15] text-[#111827] mb-8"
-          style={{ fontFamily: "Figtree, sans-serif" }}
-        >
-          Made for Every Gifting
-          <br />
-          Moment
-        </h3>
+// Repeat enough times for seamless scroll
+const scrollCategories = [...categories, ...categories, ...categories];
 
-        <div className="grid grid-cols-2 gap-x-8 gap-y-10">
-          {categories.map((c) => (
-            <div key={c.title} className="flex flex-col items-center">
-              <div
-                className="rounded-full overflow-hidden bg-[#E5E7EB]"
-                style={{ width: 88, height: 88 }}
-              >
-                <img
-                  src={c.img}
-                  alt={c.title}
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-              <p
-                className="mt-3 text-center text-[#111827] font-semibold"
-                style={{
-                  fontFamily: "Figtree, sans-serif",
-                  fontSize: "15px",
-                  lineHeight: "1.35",
-                  letterSpacing: 0,
-                }}
-              >
-                {c.title}
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
+const Categories = () => (
+  <section className="py-12 md:py-16 bg-white">
+    <h3
+      className="text-center text-[24px] md:text-[32px] font-bold leading-[1.15] text-[#111827] mb-8 md:mb-10"
+      style={{ fontFamily: "Figtree, sans-serif" }}
+    >
+      Made for Every Gifting
+      <br className="md:hidden" />
+      Moment
+    </h3>
 
-      {/* DESKTOP — keep existing layout (unchanged) */}
-      <div className="hidden md:block">
-        <div className="max-w-[1440px] mx-auto px-6 md:px-20">
-          <h3
-            className="text-[28px] md:text-[32px] font-bold mb-10"
-            style={{ fontFamily: "Figtree, sans-serif", color: "#111827" }}
+    {/* Add gap between heading and images */}
+    <div className="h-5 md:h-8"></div>
+
+    {/* Infinite horizontal scroll for both mobile and desktop */}
+    <div className="relative overflow-hidden w-full" style={{ paddingTop: "32px" }}>
+      <div className="infinite-scroll-track flex items-center gap-8" style={{ whiteSpace: "nowrap" }}>
+        {scrollCategories.map((c, idx) => (
+          <div
+            key={idx}
+            className="flex flex-col items-center cursor-pointer transition-transform duration-300 group"
+            style={{ width: 160, minWidth: 160, display: "inline-block" }} // Larger container, no negative margin
           >
-            Made for Every Gifting Moment
-          </h3>
-
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-8 justify-items-center">
-            {categories.map((c) => (
-              <div
-                key={c.title}
-                className="flex flex-col items-center cursor-pointer transition-transform duration-300"
-                style={{ width: 150, height: 189, gap: 17 }}
-              >
-                <div
-                  className="rounded-full overflow-hidden flex items-center justify-center transition-transform duration-300 transform hover:scale-105 shadow-md hover:shadow-xl"
-                  style={{
-                    width: 100,
-                    height: 100,
-                    boxShadow: "0 4px 12px rgba(0,0,0,0.08)",
-                  }}
-                >
-                  <img src={c.img} alt={c.title} className="w-full h-full object-cover" />
-                </div>
-
-                <div
-                  className="text-center mt-4 transition-colors duration-300 hover:text-[#AE1A1E]"
-                  style={{
-                    fontFamily: "Figtree, sans-serif",
-                    fontWeight: 700,
-                    fontSize: "15px",
-                    lineHeight: "20px",
-                    color: "#1F2937",
-                  }}
-                >
-                  {c.title}
-                </div>
-              </div>
-            ))}
+            <div
+              className="rounded-full overflow-visible bg-[#E5E7EB] flex items-center justify-center transition-transform duration-300 transform group-hover:scale-110 group-active:scale-105 shadow-md hover:shadow-xl"
+              style={{ width: 128, height: 128 }}
+            >
+              <img
+                src={c.img}
+                alt={c.title}
+                className="w-full h-full object-cover"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <p
+              className="mt-4 text-center text-[#111827] font-semibold transition-colors duration-300 group-hover:text-[#AE1A1E]"
+              style={{
+                fontFamily: "Figtree, sans-serif",
+                fontSize: "17px",
+                lineHeight: "1.35",
+                letterSpacing: 0,
+              }}
+            >
+              {c.title}
+            </p>
           </div>
-        </div>
+        ))}
       </div>
-    </section>
-  );
-};
+      <style>
+        {`
+          .infinite-scroll-track {
+            animation: scrollX 32s linear infinite;
+          }
+          @keyframes scrollX {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-33.333%); }
+          }
+        `}
+      </style>
+    </div>
+  </section>
+);
 
 export default Categories;

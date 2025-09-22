@@ -40,6 +40,7 @@ const WhatWeOffer = () => (
 		<style>{`
       .ww-offer .title {
         font-family: 'Libre Baskerville', serif;
+        transition: transform 0.3s;
       }
       .ww-offer .underline-bar {
         height: 6px;
@@ -47,6 +48,26 @@ const WhatWeOffer = () => (
         background: #1D69B5;
         border-radius: 9999px;
         margin: 0 auto 32px auto;
+      }
+      .ww-offer .offer-card {
+        transition: transform 0.3s;
+        will-change: transform;
+      }
+      .ww-offer .offer-card:hover {
+        transform: scale(1.05);
+        z-index: 2;
+      }
+      .ww-offer .offer-card:hover .offer-img {
+        transform: scale(1.08);
+      }
+      .ww-offer .offer-card:hover .offer-title,
+      .ww-offer .offer-card:hover .offer-desc {
+        transform: scale(1.04);
+      }
+      .ww-offer .offer-img,
+      .ww-offer .offer-title,
+      .ww-offer .offer-desc {
+        transition: transform 0.3s;
       }
       @media (max-width: 767px) {
         .ww-offer { padding-top: 24px; padding-bottom: 24px; }
@@ -64,12 +85,25 @@ const WhatWeOffer = () => (
 
 		<div className="grid-wrap grid grid-cols-1 md:grid-cols-2 gap-6 gap-y-16 py-4">
 			{offers.map((offer, idx) => (
-				<div key={idx} className="block">
-					<OfferItem {...offer} />
+				<div key={idx} className="offer-card block">
+					<OfferItem
+						{...offer}
+						imgClass="offer-img"
+						titleClass="offer-title"
+						descClass="offer-desc"
+					/>
 				</div>
 			))}
 		</div>
 	</section>
+);
+
+const OfferCard = ({ title, description, imageSrc, alt, imgClass = '', titleClass = '', descClass = '' }) => (
+  <div>
+    <img src={imageSrc} alt={alt} className={imgClass} />
+    <h3 className={titleClass}>{title}</h3>
+    <p className={descClass}>{description}</p>
+  </div>
 );
 
 export default WhatWeOffer;

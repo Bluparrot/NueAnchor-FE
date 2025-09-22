@@ -11,6 +11,22 @@ const whyItMattersData = [
 
 const WhyItMatters = () => (
   <section className="py-20 px-4 md:px-0 bg-[#EAF5FF]">
+    <style>{`
+      .why-card {
+        transition: transform 0.3s;
+        will-change: transform;
+      }
+      .why-card:hover {
+        transform: scale(1.05);
+        z-index: 2;
+      }
+      .why-card .why-icon {
+        transition: transform 0.3s;
+      }
+      .why-card:hover .why-icon {
+        transform: scale(1.12);
+      }
+    `}</style>
     <div className="max-w-6xl mx-auto">
       {/* Heading */}
       <div className="text-center mb-8 md:mb-10">
@@ -25,9 +41,9 @@ const WhyItMatters = () => (
         {whyItMattersData.map((item) => (
           <div
             key={item.id}
-            className="w-full max-w-[360px] md:max-w-none bg-white rounded-[16px] shadow-[0_4px_24px_rgba(29,105,181,0.08)] flex flex-row items-center gap-4 md:gap-5 px-4 py-4 md:px-7 md:py-8"
+            className="why-card w-full max-w-[360px] md:max-w-none bg-white rounded-[16px] shadow-[0_4px_24px_rgba(29,105,181,0.08)] flex flex-row items-center gap-4 md:gap-5 px-4 py-4 md:px-7 md:py-8"
           >
-            <div className="shrink-0 grid place-items-center w-12 h-12 md:w-14 md:h-14 rounded-full bg-white border-2 border-[#D6E9FF] shadow-[0_2px_8px_rgba(29,105,181,0.10)]">
+            <div className="why-icon shrink-0 grid place-items-center w-12 h-12 md:w-14 md:h-14 rounded-full bg-white border-2 border-[#D6E9FF] shadow-[0_2px_8px_rgba(29,105,181,0.10)]">
               <img src={item.icon} alt="" className="w-7 h-7 md:w-8 md:h-8 object-contain" />
             </div>
             <p className="text-[#222] text-[16px] md:text-[18px] font-figtree font-semibold md:font-medium leading-snug">

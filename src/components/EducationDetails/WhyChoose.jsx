@@ -9,7 +9,7 @@ const cards = [
     title: "Faster Growth with Expert Guidance",
     desc:
       "Accelerate your institution’s development with our proven methodologies and strategic insights gained from 20+ years of experience.",
-    
+
     img: growthImg,
   },
   {
@@ -52,7 +52,7 @@ const WhyChoose = () => {
           fontSize: "32px",
           color: "#4e8b4eff",
           lineHeight: "120%",
-          
+
           marginBottom: "16px",
         }}
       >
@@ -73,7 +73,8 @@ const WhyChoose = () => {
           marginRight: "auto",
         }}
       >
-        Partner with us to unlock your institution's full potential and create lasting educational impact.
+        Partner with us to unlock your institution's full potential and create
+        lasting educational impact.
       </p>
 
       {/* Mobile heading + subtext */}
@@ -82,7 +83,8 @@ const WhyChoose = () => {
           Why Choose NeuAnchor Education?
         </h2>
         <p className="text-[12px] leading-[16px] text-[#6B7280] max-w-[260px] mx-auto mb-4">
-          Partner with us to unlock your institution&apos;s full potential and create lasting educational impact.
+          Partner with us to unlock your institution&apos;s full potential and
+          create lasting educational impact.
         </p>
       </div>
 
@@ -97,7 +99,10 @@ const WhyChoose = () => {
             style={{
               outline: "none",
               background: activeIdx === i ? "#91b299ff" : c.bg,
-              boxShadow: activeIdx === i ? "0 4px 16px rgba(37,99,235,0.15)" : "none",
+              boxShadow:
+                activeIdx === i
+                  ? "0 4px 16px rgba(37,99,235,0.15)"
+                  : "none",
               color: activeIdx === i ? "#fff" : "#222",
             }}
             onClick={() => setActiveIdx(i)}
@@ -110,7 +115,15 @@ const WhyChoose = () => {
               }`}
               style={{ width: 56, height: 56 }}
             >
-              <img src={c.img} alt={c.title} style={{ width: 40, height: 40, objectFit: "contain" }} />
+              <img
+                src={c.img}
+                alt={c.title}
+                style={{
+                  width: 40,
+                  height: 40,
+                  objectFit: "contain",
+                }}
+              />
             </div>
 
             {/* Title */}
@@ -148,23 +161,17 @@ const WhyChoose = () => {
       {/* Desktop/tablet grid with clickable cards */}
       <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 justify-center mt-4">
         {cards.map((card, idx) => (
-          <button
+          <div
             key={idx}
-            className={`rounded-[16px] flex flex-col items-start p-6 transition
-              ${activeIdx === idx ? activeTabClass : ""}
-            `}
+            className="whychoose-card rounded-[16px] flex flex-col items-start p-6"
             style={{
-              background: activeIdx === idx ? "#80a58eff" : card.bg,
               minWidth: "220px",
               maxWidth: "260px",
               height: "100%",
               outline: "none",
               cursor: "pointer",
-              boxShadow: activeIdx === idx ? "0 4px 16px rgba(37,99,235,0.15)" : "none",
-              color: activeIdx === idx ? "#fff" : "#222",
+              color: "#222",
             }}
-            onClick={() => setActiveIdx(idx)}
-            type="button"
           >
             <div className="mb-4">
               <img
@@ -184,7 +191,6 @@ const WhyChoose = () => {
                 fontWeight: 600,
                 fontSize: "18px",
                 lineHeight: "130%",
-                color: activeIdx === idx ? "#fff" : "#222",
                 marginBottom: "10px",
               }}
             >
@@ -196,14 +202,28 @@ const WhyChoose = () => {
                 fontWeight: 400,
                 fontSize: "15px",
                 lineHeight: "140%",
-                color: activeIdx === idx ? "#fff" : "#222",
               }}
             >
               {card.desc}
             </p>
-          </button>
+          </div>
         ))}
       </div>
+      <style>
+        {`
+  .whychoose-card {
+    transition: transform 0.3s cubic-bezier(.4,0,.2,1), box-shadow 0.3s cubic-bezier(.4,0,.2,1), background 0.3s cubic-bezier(.4,0,.2,1);
+    will-change: transform;
+    background: #fff;
+  }
+  .whychoose-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 32px rgba(37,99,235,0.12);
+    background: #e6f0ea;
+    z-index: 2;
+  }
+`}
+      </style>
     </section>
   );
 };

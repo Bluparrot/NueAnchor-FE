@@ -5,7 +5,6 @@ const features = [
   {
     title: "Curated With Care",
     desc: "Every Gift Is Handpicked And Designed For Meaning, Not Just Aesthetics.",
-    highlight: true,
   },
   {
     title: "Personalized Experiences",
@@ -57,7 +56,7 @@ export default function WhyChoose() {
         boxSizing: "border-box",
       }}
     >
-      {/* MOBILE (exact Figma) */}
+      {/* MOBILE */}
       <div className="md:hidden max-w-[430px] mx-auto px-5">
         <h3
           className="text-[24px] font-bold text-[#111827] mb-5"
@@ -67,26 +66,16 @@ export default function WhyChoose() {
         </h3>
 
         <div className="space-y-5">
-          {features.map((f) => (
+          {features.map((f, idx) => (
             <article
               key={f.title}
-              className={`flex items-start gap-3 rounded-[10px] border p-4 ${
-                f.highlight
-                  ? "bg-[#FFF7E8] border-[#F5D7B9] shadow-[0_2px_8px_rgba(202,108,56,0.08)]"
-                  : "bg-white border-[#F3F4F6]"
-              }`}
+              className={`whychoose-card-mobile flex items-start gap-3 rounded-[10px] border p-4 bg-white border-[#F3F4F6] transition-all duration-200`}
+              tabIndex={0}
             >
               {/* Icon */}
-              {f.highlight ? (
-                <div className="w-[28px] h-[28px] rounded-md bg-[#AE1A1E] flex items-center justify-center shrink-0">
-                  {HeartWhite}
-                </div>
-              ) : (
-                <div className="w-[28px] h-[28px] flex items-center justify-center shrink-0">
-                  {HeartRedOutline}
-                </div>
-              )}
-
+              <div className="whychoose-icon-mobile w-[28px] h-[28px] flex items-center justify-center shrink-0 rounded-md transition-all duration-200 bg-transparent">
+                {HeartRedOutline}
+              </div>
               {/* Text */}
               <div>
                 <h4
@@ -105,23 +94,22 @@ export default function WhyChoose() {
             </article>
           ))}
         </div>
-
         {/* Bottom image */}
-        <div className="mt-6 rounded-[14px] overflow-hidden">
+        <div className="mt-6 rounded-[14px] overflow-hidden whychoose-img-mobile">
           <img
             src={whychoosePhoto}
             alt="Hands wrapping a gift"
-            className="w-full h-auto object-cover block"
-            style={{ aspectRatio: "328 / 244" }}
+            className="w-full h-auto object-cover block whychoose-img"
+            style={{ aspectRatio: "328 / 244", transition: "transform 0.3s cubic-bezier(.4,0,.2,1)" }}
             loading="lazy"
             decoding="async"
           />
         </div>
       </div>
 
-      {/* DESKTOP (unchanged layout, but hidden on mobile) */}
+      {/* DESKTOP */}
       <div
-        className="hidden md:flex" // show only from md and up
+        className="hidden md:flex"
         style={{
           gap: 32,
           alignItems: "flex-start",
@@ -165,30 +153,34 @@ export default function WhyChoose() {
               gap: "12px 12px",
             }}
           >
-            {features.map((f) => (
+            {features.map((f, idx) => (
               <article
                 key={f.title}
                 aria-label={f.title}
+                className="whychoose-card-desktop"
+                tabIndex={0}
                 style={{
                   display: "flex",
                   gap: 12,
                   alignItems: "flex-start",
                   padding: 16,
                   borderRadius: 6,
-                  backgroundColor: f.highlight ? "#FFF7E8" : "#FFFFFF",
-                  border: f.highlight ? "1px solid #F5D7B9" : "1px solid #F3F4F6",
+                  backgroundColor: "#FFFFFF",
+                  border: "1px solid #F3F4F6",
                   width: 298,
                   height: 121,
                   boxSizing: "border-box",
-                  boxShadow: f.highlight ? "0 2px 8px rgba(202,108,56,0.08)" : "none",
+                  boxShadow: "none",
+                  transition: "all 0.2s cubic-bezier(.4,0,.2,1)",
+                  cursor: "pointer",
                 }}
               >
-                {/* Vector (icon box) exact Figma size & color */}
+                {/* Icon */}
                 <div
+                  className="whychoose-icon-desktop"
                   style={{
-                    width: 23.333332061767578,
-                    height: 23.333332061767578,
-                    background: "#AE1A1E",
+                    width: 23.33,
+                    height: 23.33,
                     borderRadius: 6,
                     display: "flex",
                     alignItems: "center",
@@ -196,12 +188,13 @@ export default function WhyChoose() {
                     flexShrink: 0,
                     padding: 0,
                     boxSizing: "border-box",
+                    background: "transparent",
+                    transition: "all 0.2s cubic-bezier(.4,0,.2,1)",
                   }}
                   aria-hidden
                 >
-                  {HeartWhite}
+                  {HeartRedOutline}
                 </div>
-
                 {/* Text */}
                 <div style={{ flex: 1 }}>
                   <h4
@@ -234,9 +227,9 @@ export default function WhyChoose() {
             ))}
           </div>
         </div>
-
-        {/* RIGHT image rectangle exact Figma size */}
+        {/* RIGHT image */}
         <div
+          className="whychoose-img-desktop"
           style={{
             flex: "0 0 auto",
             width: 643,
@@ -244,43 +237,39 @@ export default function WhyChoose() {
             borderRadius: 14.95,
             overflow: "hidden",
             boxShadow: "0 6px 18px rgba(0,0,0,0.08)",
+            transition: "box-shadow 0.3s cubic-bezier(.4,0,.2,1)",
           }}
         >
           <img
             src={whychoosePhoto}
             alt="Hands wrapping a gift"
+            className="whychoose-img"
             style={{
-              width: 643, // exact width as given
-              height: 385, // exact height as given
+              width: 643,
+              height: 385,
               objectFit: "cover",
               display: "block",
+              transition: "transform 0.3s cubic-bezier(.4,0,.2,1)",
             }}
           />
         </div>
       </div>
 
-      {/* Responsive rules: on smaller screens stack & make items fluid */}
+      {/* Responsive + Hover styles */}
       <style>{`
         @media (max-width: 1150px) {
-          /* stack the left and right into one column */
           div[style*="flex-wrap: nowrap"] {
             flex-wrap: wrap !important;
             gap: 24px !important;
           }
-
-          /* left block becomes full width and auto height */
           div[style*="width: 612.0087890625"] {
             width: 100% !important;
             height: auto !important;
           }
-
-          /* feature cards become full width */
           div[style*="width: 298"] {
             width: 100% !important;
             height: auto !important;
           }
-
-          /* right image becomes responsive */
           div[style*="width: 643"] {
             width: 100% !important;
             height: auto !important;
@@ -290,6 +279,46 @@ export default function WhyChoose() {
             width: 100% !important;
             height: auto !important;
           }
+        }
+        /* Desktop card hover */
+        .whychoose-card-desktop:hover, .whychoose-card-desktop:focus {
+          background: #FFF7E8 !important;
+          border: 1px solid #F5D7B9 !important;
+          box-shadow: 0 2px 8px rgba(202,108,56,0.08) !important;
+          transform: scale(1.04);
+        }
+        .whychoose-card-desktop:hover .whychoose-icon-desktop,
+        .whychoose-card-desktop:focus .whychoose-icon-desktop {
+          background: #AE1A1E !important;
+        }
+        .whychoose-card-desktop:hover .whychoose-icon-desktop svg path,
+        .whychoose-card-desktop:focus .whychoose-icon-desktop svg path {
+          stroke: #fff !important;
+        }
+        /* Mobile card hover */
+        .whychoose-card-mobile:hover, .whychoose-card-mobile:focus {
+          background: #FFF7E8 !important;
+          border: 1px solid #F5D7B9 !important;
+          box-shadow: 0 2px 8px rgba(202,108,56,0.08) !important;
+          transform: scale(1.04);
+        }
+        .whychoose-card-mobile:hover .whychoose-icon-mobile,
+        .whychoose-card-mobile:focus .whychoose-icon-mobile {
+          background: #AE1A1E !important;
+        }
+        .whychoose-card-mobile:hover .whychoose-icon-mobile svg path,
+        .whychoose-card-mobile:focus .whychoose-icon-mobile svg path {
+          stroke: #fff !important;
+        }
+        /* Image zoom in/out effect */
+        .whychoose-img-desktop:hover .whychoose-img,
+        .whychoose-img-desktop:focus .whychoose-img,
+        .whychoose-img-mobile:hover .whychoose-img,
+        .whychoose-img-mobile:focus .whychoose-img {
+          transform: scale(1.06);
+        }
+        .whychoose-img {
+          transition: transform 0.3s cubic-bezier(.4,0,.2,1);
         }
       `}</style>
     </section>

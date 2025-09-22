@@ -108,6 +108,10 @@ export default function WhyChooseUs() {
           height: 100%;
           object-fit: cover;
           display: block;
+          transition: transform 0.7s cubic-bezier(.68,-0.55,.27,1.55);
+        }
+        .wc-imageWrap:hover .wc-image {
+          transform: scale(1.08);
         }
 
         .wc-badge {

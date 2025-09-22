@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import chooseImg from "../../assets/AcadmicDetails/whychoose.png";
 
+const features = [
+  "Certified & globally benchmarked content.",
+  "Flexible self-learning, accessible anytime, anywhere.",
+  "Designed for both individual growth and organizational upskilling.",
+  "Backed by 20+ years of expertise in education innovation.",
+];
+
 export default function WhyChooseUs() {
+  const [activeIdx, setActiveIdx] = useState(0);
+
   return (
     <>
       <style>{`
@@ -52,25 +61,34 @@ export default function WhyChooseUs() {
           color: #222222;
         }
 
-        .wc-highlightBox {
+        .wc-featureBtn {
+          background: transparent;
+          border: none;
+          outline: none;
+          padding: 0;
+          margin: 0;
+          width: 100%;
+          text-align: left;
+          cursor: pointer;
+          font-family: "Inter", sans-serif;
+        }
+        .wc-featureBtn.active .wc-highlightBox {
           background: #EAF4FF;
+          box-shadow: 0 2px 12px rgba(29,105,181,0.10);
+          border-left: 6px solid #1D69B5;
+          color: #0F1724;
+          font-weight: 600;
+        }
+        .wc-highlightBox {
+          background: transparent;
           padding: 16px 20px;
           border-radius: 10px;
-          font-weight: 600;
           font-size: 16px;
           line-height: 22px;
-          color: #0F1724;
-          box-shadow: inset 6px 0 0 0 rgba(29,105,181,0.08);
-          max-width: 420px;
-        }
-
-        .wc-featureText {
-          margin: 0;
-          font-size: 16px;
-          line-height: 26px;
-          max-width: 420px;
-          font-weight: 400;
           color: #222222;
+          font-weight: 400;
+          transition: background 0.2s, box-shadow 0.2s, border-left 0.2s, color 0.2s, font-weight 0.2s;
+          max-width: 420px;
         }
 
         .wc-imageWrap {
@@ -235,18 +253,18 @@ export default function WhyChooseUs() {
           </div>
 
           <div className="wc-features">
-            <div className="wc-highlightBox">
-              Certified & globally benchmarked content.
-            </div>
-            <p className="wc-featureText">
-              Flexible self-learning, accessible anytime, anywhere.
-            </p>
-            <p className="wc-featureText">
-              Designed for both individual growth and organizational upskilling.
-            </p>
-            <p className="wc-featureText">
-              Backed by 20+ years of expertise in education innovation.
-            </p>
+            {features.map((text, idx) => (
+              <button
+                key={idx}
+                type="button"
+                className={`wc-featureBtn${activeIdx === idx ? " active" : ""}`}
+                onClick={() => setActiveIdx(idx)}
+              >
+                <div className="wc-highlightBox">
+                  {text}
+                </div>
+              </button>
+            ))}
           </div>
         </div>
 

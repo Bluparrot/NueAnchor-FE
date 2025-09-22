@@ -5,63 +5,63 @@ import InclusiveImg from "../../assets/EducationDetailspage/InclusiveDesign.png"
 import WorkshopImg from "../../assets/EducationDetailspage/WorkshopsTraining.png";
 
 const cardData = [
-  {
-    img: SetupImg,
-    title: "Complete Setup Solutions",
-    desc:
-      "End-to-end consultancy covering procedures, compliances, business plans, and curriculum development for new institutions.",
-    bullets: [
-      "Business Plan Development",
-      "Regulatory Compliance",
-      "Curriculum Design",
-      "Infrastructure Planning",
-    ],
-    cardStyle: "border border-[#EAE7DE]",
-  },
-  {
-    img: StrategyImg,
-    title: "Strategic Guidance",
-    desc:
-      "Revenue model optimization, strategic partnerships, competitive pricing, and comprehensive marketing strategies.",
-    bullets: [
-      "Revenue Optimization",
-      "Partnership Development",
-      "Marketing Strategy",
-      "Growth Planning",
-    ],
-    cardStyle: "border border-[#EAE7DE]",
-  },
-  {
-    img: InclusiveImg,
-    title: "Inclusive Education Design",
-    desc:
-      "Special needs integration, extracurricular program development, and comprehensive sports infrastructure planning.",
-    bullets: [
-      "Special Needs Support",
-      "Activity Programs",
-      "Sports Infrastructure",
-      "Inclusive Policies",
-    ],
-    cardStyle: "border border-[#B6E2C6] bg-[#F7FBF9]",
-  },
-  {
-    img: WorkshopImg,
-    title: "Workshops & Training",
-    desc:
-      "Professional development programs designed for teachers, students, administrators, and educational leadership teams.",
-    bullets: [
-      "Teacher Development",
-      "Leadership Training",
-      "Student Programs",
-      "Admin Workshops",
-    ],
-    cardStyle: "border border-[#EAE7DE]",
-  },
+	{
+		img: SetupImg,
+		title: "Complete Setup Solutions",
+		desc:
+			"End-to-end consultancy covering procedures, compliances, business plans, and curriculum development for new institutions.",
+		bullets: [
+			"Business Plan Development",
+			"Regulatory Compliance",
+			"Curriculum Design",
+			"Infrastructure Planning",
+		],
+		cardStyle: "border border-[#EAE7DE]",
+	},
+	{
+		img: StrategyImg,
+		title: "Strategic Guidance",
+		desc:
+			"Revenue model optimization, strategic partnerships, competitive pricing, and comprehensive marketing strategies.",
+		bullets: [
+			"Revenue Optimization",
+			"Partnership Development",
+			"Marketing Strategy",
+			"Growth Planning",
+		],
+		cardStyle: "border border-[#EAE7DE]",
+	},
+	{
+		img: InclusiveImg,
+		title: "Inclusive Education Design",
+		desc:
+			"Special needs integration, extracurricular program development, and comprehensive sports infrastructure planning.",
+		bullets: [
+			"Special Needs Support",
+			"Activity Programs",
+			"Sports Infrastructure",
+			"Inclusive Policies",
+		],
+		cardStyle: "border border-[#B6E2C6] bg-[#F7FBF9]",
+	},
+	{
+		img: WorkshopImg,
+		title: "Workshops & Training",
+		desc:
+			"Professional development programs designed for teachers, students, administrators, and educational leadership teams.",
+		bullets: [
+			"Teacher Development",
+			"Leadership Training",
+			"Student Programs",
+			"Admin Workshops",
+		],
+		cardStyle: "border border-[#EAE7DE]",
+	},
 ];
 
 const WhatWeDo = () => (
-  <>
-    <style>{`
+	<>
+		<style>{`
       @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Figtree:wght@600&display=swap');
 
       .wwd-title {
@@ -124,7 +124,13 @@ const WhatWeDo = () => (
         flex-direction: column;
         align-items: flex-start;
         justify-content: flex-start;
-        transition: box-shadow 0.2s;
+        transition: transform 0.3s cubic-bezier(.4,0,.2,1), box-shadow 0.3s cubic-bezier(.4,0,.2,1);
+        will-change: transform;
+      }
+      .wwd-card-frame:hover, .wwd-card-frame:active {
+        transform: scale(1.04);
+        box-shadow: 0 6px 24px rgba(37,99,235,0.12);
+        z-index: 2;
       }
       .wwd-card-img {
         width: 100%;
@@ -177,9 +183,13 @@ const WhatWeDo = () => (
           text-align: center;
         }
         .wwd-card-row {
+          display: flex;
           flex-direction: column;
           gap: 16px;
-          overflow: visible;
+          width: 100%;
+          /* No overflow-x, no flex-wrap */
+          overflow-x: unset !important;
+          flex-wrap: unset !important;
         }
         .wwd-card-frame {
           width: 100%;
@@ -190,6 +200,13 @@ const WhatWeDo = () => (
           border-radius: 16px;
           background: #FFFFFF;
           box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+          transition: transform 0.3s cubic-bezier(.4,0,.2,1), box-shadow 0.3s cubic-bezier(.4,0,.2,1);
+          will-change: transform;
+        }
+        .wwd-card-frame:active {
+          transform: scale(1.03);
+          box-shadow: 0 4px 16px rgba(37,99,235,0.10);
+          z-index: 2;
         }
         .wwd-card-frame.inclusive {
           background: #F7FBF9 !important;
@@ -218,43 +235,51 @@ const WhatWeDo = () => (
       }
     `}</style>
 
-    <section className="px-4 py-8 bg-white" style={{ fontFamily: "'Poppins', sans-serif" }}>
-      <h2 className="wwd-title">What We Do</h2>
+		<section
+			className="px-4 py-8 bg-white"
+			style={{ fontFamily: "'Poppins', sans-serif" }}
+		>
+			<h2 className="wwd-title">What We Do</h2>
 
-      <p className="wwd-sub" >
-        Comprehensive solutions to transform your educational institution and prepare students for tomorrow
-      </p>
+			<p className="wwd-sub">
+				Comprehensive solutions to transform your educational institution and
+				prepare students for tomorrow
+			</p>
 
-      <div className="wwd-card-row">
-        {cardData.map((card, idx) => (
-          <div
-            key={idx}
-            className={`wwd-card-frame ${card.cardStyle} ${idx === 2 ? "inclusive" : ""}`}
-          >
-            <img
-              src={card.img}
-              alt={card.title}
-              className="wwd-card-img"
-              style={{ border: idx === 2 ? "2px solid #B6E2C6" : "none" }}
-            />
+			<div className="wwd-card-row">
+				{cardData.map((card, idx) => (
+					<div
+						key={idx}
+						className={`wwd-card-frame ${card.cardStyle} ${
+							idx === 2 ? "inclusive" : ""
+						}`}
+					>
+						<img
+							src={card.img}
+							alt={card.title}
+							className="wwd-card-img"
+							style={{
+								border: idx === 2 ? "2px solid #B6E2C6" : "none",
+							}}
+						/>
 
-            <h3 className="wwd-card-title">{card.title}</h3>
+						<h3 className="wwd-card-title">{card.title}</h3>
 
-            <p className="wwd-card-desc">{card.desc}</p>
+						<p className="wwd-card-desc">{card.desc}</p>
 
-            <ul className="wwd-card-list">
-              {card.bullets.map((item, i) => (
-                <li key={i}>
-                  <span className="dot"></span>
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </div>
-    </section>
-  </>
+						<ul className="wwd-card-list">
+							{card.bullets.map((item, i) => (
+								<li key={i}>
+									<span className="dot"></span>
+									{item}
+								</li>
+							))}
+						</ul>
+					</div>
+				))}
+			</div>
+		</section>
+	</>
 );
 
 export default WhatWeDo;

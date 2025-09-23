@@ -129,6 +129,33 @@ const Services = () => (
         padding:16px 18px 18px;
         text-align:center;
         align-items:center;
+        /* Make transitions instant for mobile cards */
+        transition:
+          background .04s linear,
+          box-shadow .06s linear,
+          transform .06s linear;
+        will-change: background, box-shadow, transform;
+      }
+      .services-card--mobile::before {
+        transition:
+          opacity .07s linear,
+          transform .07s cubic-bezier(.19,1,.22,1),
+          box-shadow .07s linear;
+        will-change: opacity, transform, box-shadow;
+      }
+      /* Mobile: show yellow effect on tap (active) and on hover */
+      .services-card--mobile:active,
+      .services-card--mobile:focus-visible,
+      .services-card--mobile:hover {
+        background: #EDC706;
+        box-shadow: 0 8px 26px -6px rgba(0,0,0,0.22), 0 3px 8px rgba(0,0,0,0.08);
+        transform: translateY(-2px);
+      }
+      .services-card--mobile:active::before,
+      .services-card--mobile:focus-visible::before,
+      .services-card--mobile:hover::before {
+        opacity: 1;
+        transform: translate(6px,6px) rotate(-4deg) scale(1);
       }
 
       @media (prefers-reduced-motion: reduce) {

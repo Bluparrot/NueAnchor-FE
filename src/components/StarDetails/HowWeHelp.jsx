@@ -47,7 +47,9 @@ const HowWeHelp = () => (
           {CARD_DATA.map((card, idx) => (
             <div
               key={idx}
-              className="bg-white rounded-xl shadow p-4 md:p-5 flex flex-col items-start transition-transform transition-shadow duration-300 ease-in-out hover:scale-105 hover:shadow-lg"
+              className="bg-white rounded-xl shadow p-4 md:p-5 flex flex-col items-start transition-transform transition-shadow duration-300 ease-in-out hover:scale-105 hover:shadow-lg active:scale-105 active:shadow-lg focus-visible:scale-105 focus-visible:shadow-lg cursor-pointer focus:outline-none"
+              style={{ touchAction: 'manipulation' }}
+              tabIndex={0}
             >
               <div className="mb-3">{card.icon}</div>
               <h4 className="font-semibold text-gray-900 mb-1">{card.title}</h4>
